@@ -42,7 +42,7 @@
       + 결제요청 -> 결제 실행 -> func
       + 포인트 사용 선택 가능 -> description
       + 포인트 3000점 이상일때만 가능이라은 기준 존재 -> description
-    + 포인트 적립 기능 - non-func
+    + 포인트 적립 기능 -> func
       + 구매 금액의 1% 적립 -> description
       + 환불시 포인트 반황 -> event
     + 추가 상품 구매 기능 - func
