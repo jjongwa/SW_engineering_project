@@ -1,0 +1,42 @@
+gyulchyoung,2022-05-01 16:15:34,usecaseDiagram final,4d31ba1
+MinsuYa,2022-05-01 12:29:48,final,d34bec4
+MinsuYa,2022-04-30 23:20:42,Add files via upload,f44102f
+MinsuYa,2022-04-30 22:39:04,Add files via upload,83f40b7
+MinsuYa,2022-04-30 21:24:53,Add files via upload,bfbf62b
+gyulchyoung,2022-04-30 18:58:14,Merge pull request #7 from jjongwa/gyulchyoung,d4d19b6
+gyulchyoung,2022-04-30 18:55:57,Add files via upload,6319d77
+jjongwa,2022-04-30 17:54:07,Merge pull request #6 from jjongwa/jonghwa,80276c3
+jjongwa,2022-04-30 17:53:08,UI 원본 추가,ffd95f4
+MinsuYa,2022-04-30 15:52:00,Add files via upload,8d4262e
+gyulchyoung,2022-04-30 15:39:56,Merge pull request #5 from jjongwa/gyulchyoung,8ac7f5a
+gyulchyoung,2022-04-30 15:39:31,usecase description,21e4119
+gyulchyoung,2022-04-30 15:38:32,Merge pull request #4 from jjongwa/main,dec7297
+jjongwa,2022-04-30 13:50:40,Merge branch 'main' of https://github.com/jjongwa/SW_engineering_project,d8bee98
+jjongwa,2022-04-30 13:46:40,공동 작성사항,9159ddc
+jjongwa,2022-04-30 13:24:58,Merge pull request #3 from jjongwa/jonghwa,5342a9c
+jjongwa,2022-04-30 13:24:01,종화-UI Design 작성,c84146f
+jjongwa,2022-04-30 01:18:35,Merge pull request #2 from jjongwa/jonghwa,b46d376
+jjongwa,2022-04-30 01:16:42,종화-usecase-discription 작성,2412b9d
+jjongwa,2022-04-30 01:16:00,종화-usecase-diagram 작성,2f5772b
+MinsuYa,2022-04-29 15:57:02,Add files via upload,8d9b226
+MinsuYa,2022-04-29 15:52:26,Delete 과제1.pdf,87e4836
+MinsuYa,2022-04-29 15:52:01,Create readme.md,bd8c053
+MinsuYa,2022-04-29 15:51:06,Delete minsu,54e79ed
+MinsuYa,2022-04-29 15:49:11,Create minsu,a7d086a
+gyulchyoung,2022-04-28 19:09:10,Merge pull request #1 from jjongwa/gyulchyoung,4a4dbe6
+MinsuYa,2022-04-28 18:57:29,Add files via upload,7eccc65
+jjongwa,2022-04-28 18:56:14,0428commit-요구사항 리스트 수정,53e28c7
+jjongwa,2022-04-28 18:18:07,0428commit-요구사항 리스트 수정,d745e2f
+gyulchyoung,2022-04-28 17:30:20,요구사항 수정,03c0fe3
+gyulchyoung,2022-04-28 16:57:22, usecase diagrm,8f62681
+jjongwa,2022-04-27 15:45:17,0427commit-종화,3007d55
+gyulchyoung,2022-04-27 12:44:35,add actor description,cb5c911
+gyulchyoung,2022-04-27 11:42:29,requirement analysis,c5256a9
+jjongwa,2022-04-26 23:10:34,0426commit-종화,6dcee70
+jjongwa,2022-04-26 22:13:28,0426commit-종화,21bb149
+jjongwa,2022-04-26 22:11:35,0426commit-종화,c9c215b
+jjongwa,2022-04-26 15:40:45,func/non func 분류,dd1b367
+jjongwa,2022-04-26 15:38:02,func/non func 분류,72662c5
+jjongwa,2022-04-26 14:55:54,0426,6f36838
+jjongwa,2022-04-21 17:48:17,test,acf700d
+jjongwa,2022-04-21 17:29:09,Initial commit,84a5985
