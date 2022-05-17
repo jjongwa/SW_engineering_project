@@ -1374,9 +1374,9 @@
 												"$ref": "AAAAAAGAdZYU6KzHpOU="
 											},
 											"font": "Arial;13;1",
-											"left": 553,
+											"left": 553.5,
 											"top": 355.5,
-											"width": 84,
+											"width": 86,
 											"height": 13,
 											"text": "상품 판매 통계"
 										},
@@ -1409,9 +1409,9 @@
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 548,
+									"left": 548.5,
 									"top": 348.5,
-									"width": 95.2236328125,
+									"width": 96,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGAdZYU6KzIso8="
@@ -1511,7 +1511,7 @@
 							"containerChangeable": true,
 							"left": 528,
 							"top": 344,
-							"width": 134,
+							"width": 137,
 							"height": 35,
 							"nameCompartment": {
 								"$ref": "AAAAAAGAdZYU6KzHpOU="
@@ -2332,7 +2332,7 @@
 											"font": "Arial;13;0",
 											"left": -240,
 											"top": -1040,
-											"width": 73.67724609375,
+											"width": 77.9365234375,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -2512,7 +2512,7 @@
 											"font": "Arial;13;0",
 											"left": 432,
 											"top": -1184,
-											"width": 73.67724609375,
+											"width": 77.9365234375,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -2981,7 +2981,7 @@
 											"font": "Arial;13;0",
 											"left": -176,
 											"top": -64,
-											"width": 73.67724609375,
+											"width": 77.9365234375,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -3180,7 +3180,7 @@
 											"font": "Arial;13;0",
 											"left": -256,
 											"top": -112,
-											"width": 73.67724609375,
+											"width": 77.9365234375,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -3379,7 +3379,7 @@
 											"font": "Arial;13;0",
 											"left": -640,
 											"top": 16,
-											"width": 73.67724609375,
+											"width": 77.9365234375,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -4372,7 +4372,7 @@
 												"$ref": "AAAAAAGAvIZIDukE9To="
 											},
 											"font": "Arial;13;1",
-											"left": 552,
+											"left": 552.5,
 											"top": 203.5,
 											"width": 81,
 											"height": 13,
@@ -4388,7 +4388,7 @@
 											"font": "Arial;13;0",
 											"left": -464,
 											"top": -384,
-											"width": 73.67724609375,
+											"width": 77.9365234375,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -4407,7 +4407,7 @@
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 547,
+									"left": 547.5,
 									"top": 196.5,
 									"width": 91.61181640625,
 									"height": 25,
@@ -4509,7 +4509,7 @@
 							"containerChangeable": true,
 							"left": 528,
 							"top": 192,
-							"width": 129,
+							"width": 130,
 							"height": 35,
 							"nameCompartment": {
 								"$ref": "AAAAAAGAvIZIDukE9To="
@@ -4571,9 +4571,9 @@
 												"$ref": "AAAAAAGAvIZ4K+u9YyU="
 											},
 											"font": "Arial;13;1",
-											"left": 535,
+											"left": 535.5,
 											"top": 251.5,
-											"width": 114,
+											"width": 117,
 											"height": 13,
 											"text": "판매 중인 의류 조회"
 										},
@@ -4587,7 +4587,7 @@
 											"font": "Arial;13;0",
 											"left": -608,
 											"top": -464,
-											"width": 73.67724609375,
+											"width": 77.9365234375,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -4606,9 +4606,9 @@
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 530,
+									"left": 530.5,
 									"top": 244.5,
-									"width": 124.83544921875,
+									"width": 127,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGAvIZ4K+u+1bg="
@@ -4708,7 +4708,7 @@
 							"containerChangeable": true,
 							"left": 504,
 							"top": 240,
-							"width": 176,
+							"width": 180,
 							"height": 35,
 							"nameCompartment": {
 								"$ref": "AAAAAAGAvIZ4K+u9YyU="
@@ -4770,9 +4770,9 @@
 												"$ref": "AAAAAAGAvIapJu8JE24="
 											},
 											"font": "Arial;13;1",
-											"left": 524.5,
+											"left": 525,
 											"top": 307.5,
-											"width": 140,
+											"width": 143,
 											"height": 13,
 											"text": "판매완료 상품 내역 조회"
 										},
@@ -4786,7 +4786,7 @@
 											"font": "Arial;13;0",
 											"left": -624,
 											"top": -544,
-											"width": 73.67724609375,
+											"width": 77.9365234375,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -4805,9 +4805,9 @@
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 519.5,
+									"left": 520,
 									"top": 300.5,
-									"width": 150.83544921875,
+									"width": 153,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGAvIapJu8K7rc="
@@ -4907,7 +4907,7 @@
 							"containerChangeable": true,
 							"left": 488,
 							"top": 296,
-							"width": 213,
+							"width": 217,
 							"height": 35,
 							"nameCompartment": {
 								"$ref": "AAAAAAGAvIapJu8JE24="
@@ -4985,7 +4985,7 @@
 											"font": "Arial;13;0",
 											"left": -480,
 											"top": 144,
-											"width": 73.67724609375,
+											"width": 77.9365234375,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -6248,9 +6248,9 @@
 												"$ref": "AAAAAAGAvIrKyuCT+KM="
 											},
 											"font": "Arial;13;1",
-											"left": 498.5,
+											"left": 499,
 											"top": 555.5,
-											"width": 55,
+											"width": 56,
 											"height": 13,
 											"text": "상품 구매"
 										},
@@ -6264,7 +6264,7 @@
 											"font": "Arial;13;0",
 											"left": 224,
 											"top": -304,
-											"width": 73.67724609375,
+											"width": 77.9365234375,
 											"height": 13,
 											"text": "(from Model)"
 										},
@@ -6283,9 +6283,9 @@
 										}
 									],
 									"font": "Arial;13;0",
-									"left": 493.5,
+									"left": 494,
 									"top": 548.5,
-									"width": 65.61181640625,
+									"width": 66,
 									"height": 25,
 									"stereotypeLabel": {
 										"$ref": "AAAAAAGAvIrKyuCUh6M="
@@ -6385,7 +6385,7 @@
 							"containerChangeable": true,
 							"left": 480,
 							"top": 544,
-							"width": 92,
+							"width": 94,
 							"height": 35,
 							"nameCompartment": {
 								"$ref": "AAAAAAGAvIrKyuCT+KM="
@@ -6450,7 +6450,7 @@
 									},
 									"visible": null,
 									"font": "Arial;13;0",
-									"left": 356,
+									"left": 357,
 									"top": 541,
 									"height": 13,
 									"alpha": 1.5707963267948966,
@@ -6556,7 +6556,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 451,
-									"top": 546,
+									"top": 547,
 									"height": 13,
 									"alpha": -0.5235987755982988,
 									"distance": 30,
@@ -6576,7 +6576,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 448,
-									"top": 533,
+									"top": 534,
 									"height": 13,
 									"alpha": -0.7853981633974483,
 									"distance": 40,
@@ -6596,7 +6596,7 @@
 									"visible": false,
 									"font": "Arial;13;0",
 									"left": 458,
-									"top": 573,
+									"top": 574,
 									"height": 13,
 									"alpha": 0.5235987755982988,
 									"distance": 25,
@@ -6641,7 +6641,7 @@
 								"$ref": "AAAAAAGAdXqayHPQ2tA="
 							},
 							"lineStyle": 1,
-							"points": "241:589;479:565",
+							"points": "241:589;479:566",
 							"showVisibility": true,
 							"nameLabel": {
 								"$ref": "AAAAAAGAvIsHQO/a0sI="
@@ -6767,90 +6767,6 @@
 								},
 								"reference": {
 									"$ref": "AAAAAAGAdZN78IHHcBc="
-								},
-								"navigable": "navigable"
-							}
-						},
-						{
-							"_type": "UMLAssociation",
-							"_id": "AAAAAAGAdZVN6Z3CGY0=",
-							"_parent": {
-								"$ref": "AAAAAAGAdXqax3POUqo="
-							},
-							"end1": {
-								"_type": "UMLAssociationEnd",
-								"_id": "AAAAAAGAdZVN6Z3DTBQ=",
-								"_parent": {
-									"$ref": "AAAAAAGAdZVN6Z3CGY0="
-								},
-								"reference": {
-									"$ref": "AAAAAAGAdXqax3POUqo="
-								}
-							},
-							"end2": {
-								"_type": "UMLAssociationEnd",
-								"_id": "AAAAAAGAdZVN6Z3Etbk=",
-								"_parent": {
-									"$ref": "AAAAAAGAdZVN6Z3CGY0="
-								},
-								"reference": {
-									"$ref": "AAAAAAGAdZOukoNAbPc="
-								},
-								"navigable": "navigable"
-							}
-						},
-						{
-							"_type": "UMLAssociation",
-							"_id": "AAAAAAGAdZXR8aiTJjc=",
-							"_parent": {
-								"$ref": "AAAAAAGAdXqax3POUqo="
-							},
-							"end1": {
-								"_type": "UMLAssociationEnd",
-								"_id": "AAAAAAGAdZXR8aiUVjU=",
-								"_parent": {
-									"$ref": "AAAAAAGAdZXR8aiTJjc="
-								},
-								"reference": {
-									"$ref": "AAAAAAGAdXqax3POUqo="
-								}
-							},
-							"end2": {
-								"_type": "UMLAssociationEnd",
-								"_id": "AAAAAAGAdZXR8aiVh1w=",
-								"_parent": {
-									"$ref": "AAAAAAGAdZXR8aiTJjc="
-								},
-								"reference": {
-									"$ref": "AAAAAAGAdZWE/J+aIeg="
-								},
-								"navigable": "navigable"
-							}
-						},
-						{
-							"_type": "UMLAssociation",
-							"_id": "AAAAAAGAdZZPqLeB3jY=",
-							"_parent": {
-								"$ref": "AAAAAAGAdXqax3POUqo="
-							},
-							"end1": {
-								"_type": "UMLAssociationEnd",
-								"_id": "AAAAAAGAdZZPqLeCAU8=",
-								"_parent": {
-									"$ref": "AAAAAAGAdZZPqLeB3jY="
-								},
-								"reference": {
-									"$ref": "AAAAAAGAdXqax3POUqo="
-								}
-							},
-							"end2": {
-								"_type": "UMLAssociationEnd",
-								"_id": "AAAAAAGAdZZPqLeD7YQ=",
-								"_parent": {
-									"$ref": "AAAAAAGAdZZPqLeB3jY="
-								},
-								"reference": {
-									"$ref": "AAAAAAGAdZXvmKqJNUw="
 								},
 								"navigable": "navigable"
 							}
@@ -7034,44 +6950,6 @@
 					]
 				},
 				{
-					"_type": "UMLActor",
-					"_id": "AAAAAAGAdYX2inTH8Mc=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "매월 말일 공지 event",
-					"ownedElements": [
-						{
-							"_type": "UMLAssociation",
-							"_id": "AAAAAAGAdZHjAIArOwo=",
-							"_parent": {
-								"$ref": "AAAAAAGAdYX2inTH8Mc="
-							},
-							"end1": {
-								"_type": "UMLAssociationEnd",
-								"_id": "AAAAAAGAdZHjAIAsmmc=",
-								"_parent": {
-									"$ref": "AAAAAAGAdZHjAIArOwo="
-								},
-								"reference": {
-									"$ref": "AAAAAAGAdYX2inTH8Mc="
-								}
-							},
-							"end2": {
-								"_type": "UMLAssociationEnd",
-								"_id": "AAAAAAGAdZHjAIAtnDc=",
-								"_parent": {
-									"$ref": "AAAAAAGAdZHjAIArOwo="
-								},
-								"reference": {
-									"$ref": "AAAAAAGAdZFdnX11rFk="
-								},
-								"navigable": "navigable"
-							}
-						}
-					]
-				},
-				{
 					"_type": "UMLUseCase",
 					"_id": "AAAAAAGAdYdCN3T8bmg=",
 					"_parent": {
@@ -7081,101 +6959,11 @@
 				},
 				{
 					"_type": "UMLUseCase",
-					"_id": "AAAAAAGAdZFdnX11rFk=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "상품 통계 공지"
-				},
-				{
-					"_type": "UMLUseCase",
 					"_id": "AAAAAAGAdZN78IHHcBc=",
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
 					"name": "구매만족도 평가"
-				},
-				{
-					"_type": "UMLUseCase",
-					"_id": "AAAAAAGAdZOukoNAbPc=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "환불 신청",
-					"ownedElements": [
-						{
-							"_type": "UMLAssociation",
-							"_id": "AAAAAAGAdfG3qnLaeB0=",
-							"_parent": {
-								"$ref": "AAAAAAGAdZOukoNAbPc="
-							},
-							"end1": {
-								"_type": "UMLAssociationEnd",
-								"_id": "AAAAAAGAdfG3q3LbD84=",
-								"_parent": {
-									"$ref": "AAAAAAGAdfG3qnLaeB0="
-								},
-								"reference": {
-									"$ref": "AAAAAAGAdZOukoNAbPc="
-								}
-							},
-							"end2": {
-								"_type": "UMLAssociationEnd",
-								"_id": "AAAAAAGAdfG3q3LcGvA=",
-								"_parent": {
-									"$ref": "AAAAAAGAdfG3qnLaeB0="
-								},
-								"reference": {
-									"$ref": "AAAAAAGAdfEiNVg9yI8="
-								},
-								"navigable": "navigable"
-							}
-						},
-						{
-							"_type": "UMLAssociation",
-							"_id": "AAAAAAGAdfLBh6Mv5S4=",
-							"_parent": {
-								"$ref": "AAAAAAGAdZOukoNAbPc="
-							},
-							"end1": {
-								"_type": "UMLAssociationEnd",
-								"_id": "AAAAAAGAdfLBh6MwX6Y=",
-								"_parent": {
-									"$ref": "AAAAAAGAdfLBh6Mv5S4="
-								},
-								"reference": {
-									"$ref": "AAAAAAGAdZOukoNAbPc="
-								}
-							},
-							"end2": {
-								"_type": "UMLAssociationEnd",
-								"_id": "AAAAAAGAdfLBh6MxC4Y=",
-								"_parent": {
-									"$ref": "AAAAAAGAdfLBh6Mv5S4="
-								},
-								"reference": {
-									"$ref": "AAAAAAGAdfJFuX1JI4o="
-								},
-								"navigable": "navigable"
-							}
-						}
-					]
-				},
-				{
-					"_type": "UMLUseCase",
-					"_id": "AAAAAAGAdZWE/J+aIeg=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "상품 구매 내역 삭제"
-				},
-				{
-					"_type": "UMLUseCase",
-					"_id": "AAAAAAGAdZXvmKqJNUw=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "상품 구매 통계"
 				},
 				{
 					"_type": "UMLUseCase",
@@ -7200,22 +6988,6 @@
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
 					"name": "의류 쇼핑 사이트"
-				},
-				{
-					"_type": "UMLActor",
-					"_id": "AAAAAAGAdfEiNVg9yI8=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "택배사 물품 수거신청 event"
-				},
-				{
-					"_type": "UMLActor",
-					"_id": "AAAAAAGAdfJFuX1JI4o=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "포인트 반환 event"
 				},
 				{
 					"_type": "UMLActor",
@@ -7341,44 +7113,6 @@
 				},
 				{
 					"_type": "UMLActor",
-					"_id": "AAAAAAGAdg310dd76kw=",
-					"_parent": {
-						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
-					},
-					"name": "6개월 후 구매 내역 자동 삭제 event",
-					"ownedElements": [
-						{
-							"_type": "UMLAssociation",
-							"_id": "AAAAAAGAdg6wSgeynd4=",
-							"_parent": {
-								"$ref": "AAAAAAGAdg310dd76kw="
-							},
-							"end1": {
-								"_type": "UMLAssociationEnd",
-								"_id": "AAAAAAGAdg6wSwezR1I=",
-								"_parent": {
-									"$ref": "AAAAAAGAdg6wSgeynd4="
-								},
-								"reference": {
-									"$ref": "AAAAAAGAdg310dd76kw="
-								}
-							},
-							"end2": {
-								"_type": "UMLAssociationEnd",
-								"_id": "AAAAAAGAdg6wSwe0fQc=",
-								"_parent": {
-									"$ref": "AAAAAAGAdg6wSgeynd4="
-								},
-								"reference": {
-									"$ref": "AAAAAAGAdZWE/J+aIeg="
-								},
-								"navigable": "navigable"
-							}
-						}
-					]
-				},
-				{
-					"_type": "UMLActor",
 					"_id": "AAAAAAGAvIK5EFsDgN8=",
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
@@ -7486,24 +7220,6 @@
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
 					"name": "상품 구매"
-				}
-			]
-		},
-		{
-			"_type": "UMLModel",
-			"_id": "AAAAAAGAdZzhXhkkh30=",
-			"_parent": {
-				"$ref": "AAAAAAFF+h6SjaM2Hec="
-			},
-			"name": "Model1",
-			"ownedElements": [
-				{
-					"_type": "UMLClassDiagram",
-					"_id": "AAAAAAGAdZzhXhklsnc=",
-					"_parent": {
-						"$ref": "AAAAAAGAdZzhXhkkh30="
-					},
-					"name": "ClassDiagram1"
 				}
 			]
 		}
