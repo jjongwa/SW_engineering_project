@@ -9,7 +9,11 @@
 	반환값    : 없음
 */
 void StateMachine::run()
-{
+{	
+	FILE* in_fp = fopen(INPUT_FILE_NAME, "r+");
+	FILE* out_fp = fopen(OUTPUT_FILE_NAME, "w+");
+
+
 	int i, j;
 	Event curEvent;		// 현재 이벤트
 
@@ -48,19 +52,105 @@ void StateMachine::run()
 Event StateMachine::getNextEvent()
 {
 	Event selectedEvent;       // 반환할 이벤트
-	int inputEvent;				// 사용자로부터 입력받은 이벤트
 
-	// 입력 안내 메세지 출력
-	cout << "[현재 상태 : " << getCurrentStateString() << "]" << endl;
-	cout << "1. Deposit a 100 won coin" << endl;
-	cout << "2. Press the refund button" << endl;
-	cout << "3. Press the beverage button you want" << endl;
-	cout << "4. Quit" << endl;
-	cout << "Select an event # : ";
+	// 메뉴 파싱을 위한 level 구분을 위한 변수
+	int menu_level_1 = 0, menu_level_2 = 0;
 
-	// 사용자로부터 이벤트 입력받음
-	cin >> inputEvent;
+	// 입력파일에서 메뉴 숫자 2개를 읽기
+	fscanf(in_fp, "%d %d ", &menu_level_1, &menu_level_2);
 
+	// 메뉴 구분 및 해당 연산 수행
+	switch (menu_level_1) 
+	{
+		case 1:
+		{
+			switch (menu_level_2)
+			{
+				case 1:	// 1.1. 회원가입
+				{
+					break;
+				}
+				case 2:	// 1.2.	회원탈퇴
+				{
+					break;
+				}
+			}
+		}
+		case 2:
+		{
+			switch (menu_level_2)
+			{
+				case 1:	// 2.1. 로그인
+				{
+					break;
+				}
+				case 2:	// 2.2.	로그아웃
+				{
+					break;
+				}
+			}
+		}
+		case 3:
+		{
+			switch (menu_level_2)
+			{
+				case 1:	// 3.1. 판매 의류 등록
+				{
+					break;
+				}
+				case 2:	// 3.2.	등록 상품 조회
+				{
+					break;
+				}
+				case 3:	// 3.3.	판매 완료 상품 조회
+				{
+					break;
+				}
+			}
+		}
+		case 4:
+		{
+			switch (menu_level_2)
+			{
+				case 1:	// 4.1. 상품 정보 검색
+				{
+					break;
+				}
+				case 2:	// 4.2.	상품 구매
+				{
+					break;
+				}
+				case 3:	// 4.3. 상품 구매 내역 조회
+				{
+					break;
+				}
+				case 4:	// 4.4. 상품 구매만족도 평가
+				{
+					break;
+				}
+			}
+		}
+		case 5:
+		{
+			case 1:	// 5.1. 판매 상품 통계
+			{
+				break;
+			}
+		}
+		case 6:
+		{
+			case 1:	// 6.1. 종료
+			{
+				selectedEvent = EVENT_QUIT;
+				curState = STATE_END;
+				break;
+			}
+		}
+	}
+
+	return selectedEvent;
+
+	/*
 	// 입력 값에 따라 반환할 이벤트 값을 결정함
 	switch (inputEvent)
 	{
@@ -80,6 +170,7 @@ Event StateMachine::getNextEvent()
 	}
 
 	return selectedEvent;
+	*/
 }
 
 

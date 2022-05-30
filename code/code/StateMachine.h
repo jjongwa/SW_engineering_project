@@ -1,22 +1,39 @@
 #include <iostream>
+#include <string>
 
+// 상수 선언
+#define MAX_STRING 32
+#define INPUT_FILE_NAME "input.txt“
+#define OUTPUT_FILE_NAME "output.txt"
+
+
+//
 #define NUMBER_OF_TABLE_ENTRIES 100     // event-action table의 현재 entry 갯수
 #define MAX_NUMBER_OF_ACTIONS   3       // transition 시 실행되는 최대 action 갯수
-
+//
 using namespace std;
 
 
 // State 열거형 정의
 typedef enum {
     STATE_READY,
+    STATE_MAIN,
+    STATE_PRODUCT_DETAIL,
+    STATE_PURCHASELIST,
+    STATE_END,
+
+    //
     STATE_100_INSERTED,
-    STATE_200_INSERTED,
-    STATE_END
+    STATE_200_INSERTED
+    //
 } State;
 
 
 // Event 열거형 정의
 typedef enum {
+    // EVENT 1~ 12까지 정의 필요
+
+
     EVENT_INSERT_100,
     EVENT_REFUND_BUTTON_PRESSED,
     EVENT_BEVERAGE_BUTTON_PRESSED,
