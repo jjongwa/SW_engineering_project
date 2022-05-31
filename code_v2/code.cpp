@@ -18,6 +18,7 @@ ofstream out_fp (OUTPUT_FILE_NAME);
 
 
 
+
 // Class 선언
 
 /*
@@ -45,6 +46,8 @@ class Cloth
 		int getquantity(){return quantity;};
 
 };
+
+
 
 
 /*
@@ -90,6 +93,35 @@ class Seller : public Member
 		vector<Cloth> getSoldoutClothlist(){return soldoutClothCollection; };
 };
 vector <Seller> sellers;	//Seller들의 주소를 모아두는 배열
+
+
+
+
+
+/*
+	클래스 이름 	: PurchaseCloth
+	기능	  		: 의류 구매 control class
+	작성자		: 신종화
+*/
+class PurchaseCloth
+{
+public:
+	void purchaseClothRequest();
+};
+
+
+
+/*
+	클래스 이름 	: PurchaseClothUI
+	기능	  		: 의류 구매 boundary class
+	작성자		: 신종화
+*/
+class PurchaseClothUI
+{
+public:
+	void purchase();
+};
+
 
 /*
 	클래스 이름 	: SignUp
