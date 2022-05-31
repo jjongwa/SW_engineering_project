@@ -11,6 +11,11 @@ using namespace std;
 #define INPUT_FILE_NAME	"input.txt"
 #define OUTPUT_FILE_NAME "output.txt"
 
+ifstream in_fp (INPUT_FILE_NAME);   
+ofstream out_fp (OUTPUT_FILE_NAME); 
+
+
+
 
 // Class 선언
 
@@ -34,25 +39,25 @@ vector <Member> Members;	// Member들의 주소를 모아두는 배열
 
 
 /*
-	클래스 이름 : SignUp
-	의미	  : 회원 가입 control class
+	클래스 이름 	: SignUp
+	기능	  		: 회원 가입 control class
+	작성자		: 신종화
 */
 class SignUp
 {
 public:
-	void createMemRequest();
+	void createMemRequest(string name, string SSN, string ID, string password);
 };
 
 
-
 /*
-	클래스 이름 : SignUpUI
-	의미	  : 회원 가입 boundary class
+	클래스 이름	: SignUpUI
+	기능  		: 회원 가입 boundary class
+	작성자		: 신종화
 */
 class SignUpUI
 {
 public:
-	void inputInfo();
 	void signUpRequest();
 };
 
@@ -60,31 +65,12 @@ public:
 
 
 
-// 함수 선언
 
-/*
-	함수 이름 : Member:::Member()
-	기능	  : 새로운 회원을 만드는 생성자
-	전달 인자 : string input_name, string input_SSN, string input_ID, string input_password
-	반환값    : 없음
-*/
-Member::Member(string input_name, string input_SSN, string input_ID, string input_password)
-{
-	name = input_name;
-	SSN = input_SSN;
-	ID = input_ID;
-	password = input_password;
-	is_available = true;
-}
+
 
 
 void doTask();
-void join();
 void program_exit();
-
-
-ifstream in_fp (INPUT_FILE_NAME);   
-ofstream out_fp (OUTPUT_FILE_NAME); 
 
 
 int main()
@@ -98,26 +84,33 @@ void doTask()
 {
 	//cout << "doTask들어옴"<< endl;
 	// 메뉴 파싱을 위한 level 구분을 위한 변수
-	int menu_level_1 = 0, menu_level_2 = 0;
+	
 	int is_program_exit = 0;
 	
 	while(!is_program_exit)
-	{
+	{	
+		string dummy;	// 루프 방지를 위한 변수
+		int menu_level_1 = 0, menu_level_2 = 0;
 		// 입력파일에서 메뉴 숫자 2개를 읽기
 		in_fp >> menu_level_1 >> menu_level_2;
-		
 		cout << "확인용) 현재 받은 method 번호: "<< menu_level_1 << " " <<menu_level_2<< endl;
+		
+		
+		
 		// 메뉴 구분 및 해당 연산 수행
 		switch(menu_level_1)
 		{
 			case 1:
-			{
+			{		
 				switch(menu_level_2)
 				{
 					case 1:	// "1.1. 회원가입“ 메뉴 부분
 					{						
 						// join() 함수에서 해당 기능 수행 
-						join();
+						SignUpUI* startSignUpUI = new SignUpUI;
+						startSignUpUI->signUpRequest();
+						
+						//join();
 						break;
 					}
 					case 2:	// 1.2 회원탈퇴
@@ -126,13 +119,16 @@ void doTask()
 						break;
 					}
 				}
+				break;
 			}
 			case 2:
-			{
+			{	
 				switch(menu_level_2)
 				{
 					case 1:	// 2.1 로그인
 					{				
+						in_fp >> dummy;	// 무한루프 방지구문, 코드 완성하면 지워주세요
+						in_fp >> dummy;	// 무한루프 방지구문, 코드 완성하면 지워주세요
 						
 						break;
 					}
@@ -142,7 +138,7 @@ void doTask()
 						break;
 					}
 				}
-				
+				break;
 			}
 			case 3:
 			{
@@ -150,7 +146,10 @@ void doTask()
 				{
 					case 1:	// 3.1 판매 의류 등록
 					{				
-		   
+						in_fp >> dummy;	// 무한루프 방지구문, 코드 완성하면 지워주세요
+						in_fp >> dummy;	// 무한루프 방지구문, 코드 완성하면 지워주세요
+						in_fp >> dummy;	// 무한루프 방지구문, 코드 완성하면 지워주세요
+						in_fp >> dummy;	// 무한루프 방지구문, 코드 완성하면 지워주세요
 						break;
 					}
 					case 2:	// 3.2 등록 상품 조회
@@ -164,7 +163,7 @@ void doTask()
 						break;
 					}
 				}
-				
+				break;
 			}
 			case 4:
 			{
@@ -172,7 +171,7 @@ void doTask()
 				{
 					case 1:	// 4.1 상품 정보 검색
 					{				
-		   
+						in_fp >> dummy;	// 무한루프 방지구문, 코드 완성하면 지워주세요
 						break;
 					}
 					case 2:	// 4.2 상품 구매
@@ -187,11 +186,11 @@ void doTask()
 					}
 					case 4:	// 4.4 상품 구매만족도 평가
 					{
-			   
+						in_fp >> menu_level_1;	// 무한루프 방지구문, 코드 완성하면 지워주세요
 						break;
 					}
 				}
-				
+				break;
 			}
 			case 5:
 			{
@@ -204,21 +203,21 @@ void doTask()
 					}
 					
 				}
-				
+				break;
 			}
 			case 6:
 			{
 				switch(menu_level_2)
 				{
 					case 1:	// 6.1 종료
-					{				
-						program_exit();						
-						is_program_exit = 1;
-						break;
+					{	
+						is_program_exit = 1;							
+						program_exit();
+						break;						
 					}
 					
 				}
-				
+				break;
 			}		  		  		  		
 		}
 	}
@@ -230,33 +229,89 @@ void doTask()
 
 
 
+
+
+
+
+
+// 함수 선언
+
 /*
-	함수 이름 : join()
-	기능	  : 회원가입 파트에서 호출하는 함수
-	전달 인자 : 없음
-	반환값    : 없음
+	함수 이름	: Member:::Member()
+	기능		: 새로운 회원을 만드는 생성자
+	전달 인자	: string input_name, string input_SSN, string input_ID, string input_password
+	반환값	: 없음
+	작성자	: 신종화
 */
-void join()    
+Member::Member(string input_name, string input_SSN, string input_ID, string input_password)
 {
-	string name, SSN, ID, password;
-	/*
-	char user_type[MAX_STRING], name[MAX_STRING], SSN[MAX_STRING], 
-		address[MAX_STRING], ID[MAX_STRING], password[MAX_STRING];
-	*/
-	
-	// 입력 형식 : 이름, 주민번호, ID, Password를 파일로부터 읽음
-	in_fp >> name >> SSN >> ID >> password;
-	// 해당 기능 수행  
-    Member newMem = Member(name, SSN, ID, password);
-	Members.push_back(newMem);
-	
-	cout << "확인용(멤버 저장됐는지) 방금 저장된 계정의 사람 이름  "<<Members[0].getName() << endl;
+	name = input_name;
+	SSN = input_SSN;
+	ID = input_ID;
+	password = input_password;
+	is_available = true;
+}
+
+
+/*
+	함수 이름	: SignUpUI::signUpRequest()
+	기능		: 회원가입 진행을 시작하는 함수, 회원가입에 필요한 정보를 입력받음
+	전달 인자	: 없음
+	반환값	: 없음, SignUp->createMemRequest() 호출 
+	작성자	: 신종화
+*/
+void SignUpUI::signUpRequest()
+{
 	// 출력 형식
 	out_fp << "1.1. 회원가입" << endl;
+	
+	string name, SSN, ID, password;
+	in_fp >> name >> SSN >> ID >> password;
+	
+	SignUp* startSignUp = new SignUp;
+	startSignUp->createMemRequest(name, SSN, ID, password);
+	
+}
+
+/*
+	함수 이름	: SignUpUI::createMemRequest(string name, string SSN, string ID, string password)
+	기능		: 회원가입 진행, 입력받은 정보로 Member 클래스 만들어 Members 벡터에 저장
+	전달 인자	: string name, string SSN, string ID, string password
+	반환값	: 없음
+	작성자	: 신종화
+*/
+void SignUp::createMemRequest(string name, string SSN, string ID, string password)
+{
+	Member newMem = Member(name, SSN, ID, password);
+	Members.push_back(newMem);
+	
+	cout << "확인용(멤버 저장됐는지) 방금 저장된 계정의 사람 이름  "<<Members.back().getName() << endl;
+	// 출력 형식
 	out_fp << "> " << name << " " << SSN << " " << ID << " " << password <<endl;
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+	함수 이름	: program_exit()  
+	기능		: 프로그램 종료 (doTask 종료)
+	전달 인자	: 없음
+	반환값	: 없음
+	작성자	: 신종화
+*/
 void program_exit()    
 {
 	// 출력 형식
