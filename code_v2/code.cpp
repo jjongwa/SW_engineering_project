@@ -1,4 +1,4 @@
-#include <iostream>
+ï»¿#include <iostream>
 #include <stdio.h>
 #include <string>
 #include <fstream>
@@ -7,146 +7,235 @@
 
 using namespace std;
 
-// »ó¼ö ¼±¾ğ
+// ìƒìˆ˜ ì„ ì–¸
 #define MAX_STRING 32
 #define INPUT_FILE_NAME	"input.txt"
 #define OUTPUT_FILE_NAME "output.txt"
 
-ifstream in_fp (INPUT_FILE_NAME);   
-ofstream out_fp (OUTPUT_FILE_NAME); 
+ifstream in_fp(INPUT_FILE_NAME);
+ofstream out_fp(OUTPUT_FILE_NAME);
 
 
 
 
 
-// Class ¼±¾ğ
+// Class ì„ ì–¸
+
+
+
 
 /*
-	Å¬·¡½º ÀÌ¸§ : Cloth
-	ÀÇ¹Ì	  : ¿Ê Á¤º¸¸¦ ´ã°í ÀÖ´Ù 
+	í´ë˜ìŠ¤ ì´ë¦„ : Cloth
+	ì˜ë¯¸	  : ì˜· ì •ë³´ë¥¼ ë‹´ê³  ìˆë‹¤
 */
-class Cloth 
+class Cloth
 {
-	private:
-		string clothName;
-		string companyName;
-		int price;
-		int quantity;
-		int averageEvaluation=0;
-		// vector<Evaluation> evaluationCollection;
-	public:
-		Cloth(string input_clothName, string input_companyName, int input_price, int input_quantity){
-			clothName = input_clothName;
-			companyName = input_companyName;
-			price = input_price;
-			quantity = input_quantity;
-		};
+private:
+	string clothName;
+	string companyName;
+	int price;
+	int quantity;
+	int averageEvaluation = 0;
+	// vector<Evaluation> evaluationCollection;
+public:
+	Cloth(string input_clothName, string input_companyName, int input_price, int input_quantity) {
+		clothName = input_clothName;
+		companyName = input_companyName;
+		price = input_price;
+		quantity = input_quantity;
+	};
 
-		bool operator== (const string& s){
-				if(this->getName().compare(s) == 0){
-					return true;
-				}else{
-					return false;
-				}
-			};
+	bool operator== (const string& s) {
+		if (this->getName().compare(s) == 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	};
 
-		string getName() const {return clothName;};
-		string getCompany(){return companyName;};
-		int getprice(){return price;};
-		int getquantity(){return quantity;};
-		int getAverageEvaluation(){return averageEvaluation;};
+	string getName() const { return clothName; };
+	string getCompany() { return companyName; };
+	int getprice() { return price; };
+	int getquantity() { return quantity; };
+	int getAverageEvaluation() { return averageEvaluation; };
+	void buyCloth();
+	void updateRate(Cloth* cloth, int rate);
 
 };
-vector <Cloth> Clothes;	// ClothµéÀÇ ÁÖ¼Ò¸¦ ¸ğ¾ÆµÎ´Â ¹è¿­
+vector <Cloth> Clothes;	// Clothë“¤ì˜ ì£¼ì†Œë¥¼ ëª¨ì•„ë‘ëŠ” ë°°ì—´
 
+/*
+	í´ë˜ìŠ¤ ì´ë¦„ : ClothRating
+	ì˜ë¯¸	  : í•´ë‹¹ ì˜ë¥˜ì˜ êµ¬ë§¤ë§Œì¡±ë„ê°€ ë‹´ê²¨ìˆë‹¤. 
+*/
+class ClothRating
+{
+private:
+	Cloth* cloth;
+	int rate;
+public:
+	Cloth* getCloth() { return cloth; };
+	int getRate() { return rate; };
+	ClothRating(Cloth* cloth, int rate);
+};
+vector <ClothRating> ClothRatingList;
 
 
 
 /*
-	Å¬·¡½º ÀÌ¸§ : Member
-	ÀÇ¹Ì	  : È¸¿ø Á¤º¸¸¦ ´ã°í ÀÖ´Ù 
+	í´ë˜ìŠ¤ ì´ë¦„ : Member
+	ì˜ë¯¸	  : íšŒì› ì •ë³´ë¥¼ ë‹´ê³  ìˆë‹¤
 */
 class Member
-{		
+{
 private:
-	string name, SSN, ID, password;	// ÀÌ¸§, ÁÖ¹Î¹øÈ£, ¾ÆÀÌµğ, ºñ¹Ğ¹øÈ£
+	string name, SSN, ID, password;	// ì´ë¦„, ì£¼ë¯¼ë²ˆí˜¸, ì•„ì´ë””, ë¹„ë°€ë²ˆí˜¸
 public:
 	Member(string input_name, string input_SSN, string input_ID, string input_password);
-	bool operator== (const string& s){
-				if(this->getID().compare(s) == 0){
-					return true;
-				}else{
-					return false;
-				}
-			};
-	string getName(){return name;}
-	string getSSN(){return SSN;}
-	string getID() const {return ID;} 
-	string getPassword(){return password;}  
-	bool is_available;	// ÀÌ °èÁ¤ÀÌ »ç¿ë°¡´ÉÇÑÁö (Å»ÅğÇÏÁö ¾Ê¾Ò´ÂÁö);
+	bool operator== (const string& s) {
+		if (this->getID().compare(s) == 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	};
+	string getName() { return name; }
+	string getSSN() { return SSN; }
+	string getID() const { return ID; }
+	string getPassword() { return password; }
+	bool is_available;	// ì´ ê³„ì •ì´ ì‚¬ìš©ê°€ëŠ¥í•œì§€ (íƒˆí‡´í•˜ì§€ ì•Šì•˜ëŠ”ì§€);
 };
-vector <Member> Members;	// MemberµéÀÇ ÁÖ¼Ò¸¦ ¸ğ¾ÆµÎ´Â ¹è¿­
-Member* loginUser; //·Î±×ÀÎÇÑ »ç¿ëÀÚ
+vector <Member> Members;	// Memberë“¤ì˜ ì£¼ì†Œë¥¼ ëª¨ì•„ë‘ëŠ” ë°°ì—´
+Member* loginUser; //ë¡œê·¸ì¸í•œ ì‚¬ìš©ì
 
 /*
-	Å¬·¡½ºÀÌ¸§ : Seller
-	ÀÇ¹Ì	: ÆÇ¸ÅÀÚ Á¤º¸¸¦ ´ã°í ÀÖ´Ù. 
+	í´ë˜ìŠ¤ì´ë¦„ : Seller
+	ì˜ë¯¸	: íŒë§¤ì ì •ë³´ë¥¼ ë‹´ê³  ìˆë‹¤.
 */
 class Seller : public Member
 {
-	private:
-		vector<Cloth> sellClothCollection;
-		vector<Cloth> soldoutClothCollection;
-	public:
-		Seller(Member member) : Member(member.getName(), member.getSSN(), member.getID(), member.getPassword()){};
-		bool operator== (const string& s){
-				if(this->getID().compare(s) == 0){
-					return true;
-				}else{
-					return false;
-				}
-			};
-		void createSellCloth(Cloth cloth){
-			sellClothCollection.push_back(cloth);
-		};
-		vector<Cloth> getSellClothlist(){return sellClothCollection; };
-		vector<Cloth> getSoldoutClothlist(){return soldoutClothCollection; };
+private:
+	vector<Cloth> sellClothCollection;
+	vector<Cloth> soldoutClothCollection;
+public:
+	Seller(Member member) : Member(member.getName(), member.getSSN(), member.getID(), member.getPassword()) {};
+	bool operator== (const string& s) {
+		if (this->getID().compare(s) == 0) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	};
+	void createSellCloth(Cloth cloth) {
+		sellClothCollection.push_back(cloth);
+	};
+	vector<Cloth> getSellClothlist() { return sellClothCollection; };
+	vector<Cloth> getSoldoutClothlist() { return soldoutClothCollection; };
 };
-vector <Seller> Sellers;	//SellerµéÀÇ ÁÖ¼Ò¸¦ ¸ğ¾ÆµÎ´Â ¹è¿­
-
-
+vector <Seller> Sellers;	//Sellerë“¤ì˜ ì£¼ì†Œë¥¼ ëª¨ì•„ë‘ëŠ” ë°°ì—´
 
 
 
 /*
-	Å¬·¡½º ÀÌ¸§ 	: PurchaseCloth
-	±â´É	  		: ÀÇ·ù ±¸¸Å control class
-	ÀÛ¼ºÀÚ		: ½ÅÁ¾È­
+	í´ë˜ìŠ¤ ì´ë¦„ : PurchaseProcudt
+	ì˜ë¯¸		: êµ¬ë§¤ë‚´ì—­ (êµ¬ë§¤ì ì´ë¦„, ìƒí’ˆì´ë¦„)
+*/
+class PurchaseProcudt
+{
+private:
+	string buyerID;
+	Cloth* product;
+public:
+	PurchaseProcudt(string input_buyer, Cloth* input_product);
+	string getBuyerID() { return buyerID; };
+	Cloth* getProduct() { return product; };
+
+};
+vector <PurchaseProcudt> PurchaseProductList;	//PurchaseProcudtë“¤ì˜ ì£¼ì†Œë¥¼ ëª¨ì•„ë‘ëŠ” ë°°ì—´
+
+/*
+	í´ë˜ìŠ¤ ì´ë¦„ 	: PurchaseCloth
+	ê¸°ëŠ¥	  		: ì˜ë¥˜ êµ¬ë§¤ control class
+	ì‘ì„±ì			: ì‹ ì¢…í™”
 */
 class PurchaseCloth
 {
 public:
-	void purchaseClothRequest();
+	void purchaseClothRequest(string buyer, string productName);
 };
 
 
 
 /*
-	Å¬·¡½º ÀÌ¸§ 	: PurchaseClothUI
-	±â´É	  		: ÀÇ·ù ±¸¸Å boundary class
-	ÀÛ¼ºÀÚ		: ½ÅÁ¾È­
+	í´ë˜ìŠ¤ ì´ë¦„ 	: PurchaseClothUI
+	ê¸°ëŠ¥	  		: ì˜ë¥˜ êµ¬ë§¤ boundary class
+	ì‘ì„±ì			: ì‹ ì¢…í™”
 */
 class PurchaseClothUI
 {
 public:
-	void purchase();
+	void purchase(string buyer, string productName);
 };
 
 
 /*
-	Å¬·¡½º ÀÌ¸§ 	: SignUp
-	±â´É	  		: È¸¿ø °¡ÀÔ control class
-	ÀÛ¼ºÀÚ		: ½ÅÁ¾È­
+	í´ë˜ìŠ¤ ì´ë¦„ 	: PurchaseListUI
+	ê¸°ëŠ¥	  		: ìƒí’ˆ êµ¬ë§¤ë‚´ì—­ ì¡°íšŒ boundary class
+	ì‘ì„±ì			: ì‹ ì¢…í™”
+*/
+class PurchaseListUI
+{
+public:
+	void showPurchaseList(string buyerID);
+};
+
+
+/*
+	í´ë˜ìŠ¤ ì´ë¦„ 	: PurchaseList
+	ê¸°ëŠ¥	  		: ìƒí’ˆ êµ¬ë§¤ë‚´ì—­ ì¡°íšŒ controll class
+	ì‘ì„±ì			: ì‹ ì¢…í™”
+*/
+class PurchaseList
+{
+public:
+	void showPurchaseProduct(string buyerID);
+};
+
+
+/*
+	í´ë˜ìŠ¤ ì´ë¦„ 	: RatingUI
+	ê¸°ëŠ¥	  		: êµ¬ë§¤ë§Œì¡±ë„ í‰ê°€ boundary class
+	ì‘ì„±ì			: ì‹ ì¢…í™”
+*/
+class RatingUI
+{
+public:
+	void ratingProduct(string buyerID, string productName, int rate);
+};
+
+
+/*
+	í´ë˜ìŠ¤ ì´ë¦„ 	: Rating
+	ê¸°ëŠ¥	  		: êµ¬ë§¤ë§Œì¡±ë„ í‰ê°€ controll class
+	ì‘ì„±ì			: ì‹ ì¢…í™”
+*/
+class Rating
+{
+public:
+	void createRate(string buyerID, string productName, int rate);
+
+};
+
+
+
+
+/*
+	í´ë˜ìŠ¤ ì´ë¦„ 	: SignUp
+	ê¸°ëŠ¥	  		: íšŒì› ê°€ì… control class
+	ì‘ì„±ì		: ì‹ ì¢…í™”
 */
 class SignUp
 {
@@ -156,9 +245,9 @@ public:
 
 
 /*
-	Å¬·¡½º ÀÌ¸§	: SignUpUI
-	±â´É  		: È¸¿ø °¡ÀÔ boundary class
-	ÀÛ¼ºÀÚ		: ½ÅÁ¾È­
+	í´ë˜ìŠ¤ ì´ë¦„	: SignUpUI
+	ê¸°ëŠ¥  		: íšŒì› ê°€ì… boundary class
+	ì‘ì„±ì		: ì‹ ì¢…í™”
 */
 class SignUpUI
 {
@@ -167,124 +256,124 @@ public:
 };
 
 /*
-	Å¬·¡½º ÀÌ¸§ : AddSellCloth
-	ÀÇ¹Ì	  : ÆÇ¸ÅÀÇ·ù µî·Ï control class
+	í´ë˜ìŠ¤ ì´ë¦„ : AddSellCloth
+	ì˜ë¯¸	  : íŒë§¤ì˜ë¥˜ ë“±ë¡ control class
 */
 class AddSellCloth
 {
-	public: 
-		void addSellCloth(Cloth cloth, Member user);
+public:
+	void addSellCloth(Cloth cloth, Member user);
 };
 
 /*
-	Å¬·¡½º ÀÌ¸§ : AddSellClothUI
-	ÀÇ¹Ì	  : ÆÇ¸ÅÀÇ·ù µî·Ï boundary class
+	í´ë˜ìŠ¤ ì´ë¦„ : AddSellClothUI
+	ì˜ë¯¸	  : íŒë§¤ì˜ë¥˜ ë“±ë¡ boundary class
 */
 class AddSellClothUI
 {
-	public:
-		Cloth createSellCloth(string clothName, string companyName, int price, int quantity ){
-			Cloth cloth = Cloth(clothName, companyName, price, quantity);
-			return cloth;
-		};
-		void startInterface();
+public:
+	Cloth createSellCloth(string clothName, string companyName, int price, int quantity) {
+		Cloth cloth = Cloth(clothName, companyName, price, quantity);
+		return cloth;
+	};
+	void startInterface();
 
 };
 
 /*
-	Å¬·¡½º ÀÌ¸§ : SignOut
-	ÀÇ¹Ì	  : È¸¿øÅ»Åğ control class
+	í´ë˜ìŠ¤ ì´ë¦„ : SignOut
+	ì˜ë¯¸	  : íšŒì›íƒˆí‡´ control class
 */
 class SignOut
 {
-	public: 
-		void deleteMember(Member user){
-		    vector<Member>::iterator tmp_idx1 = find(Members.begin(), Members.end(), user.getID());
-			Members.erase(tmp_idx1);
+public:
+	void deleteMember(Member user) {
+		vector<Member>::iterator tmp_idx1 = find(Members.begin(), Members.end(), user.getID());
+		Members.erase(tmp_idx1);
 
-			vector<Seller>::iterator tmp_idx2 = find(Sellers.begin(), Sellers.end(), user.getID());
-			Sellers.erase(tmp_idx2);
-			out_fp << "> " << user.getID() << endl;
-			
-			loginUser = nullptr;
-		};
+		vector<Seller>::iterator tmp_idx2 = find(Sellers.begin(), Sellers.end(), user.getID());
+		Sellers.erase(tmp_idx2);
+		out_fp << "> " << user.getID() << endl;
+
+		loginUser = nullptr;
+	};
 };
 
 /*
-	Å¬·¡½º ÀÌ¸§ : SignOUtUI
-	ÀÇ¹Ì	  :  È¸¿øÅ»Åğ boundary class
+	í´ë˜ìŠ¤ ì´ë¦„ : SignOUtUI
+	ì˜ë¯¸	  :  íšŒì›íƒˆí‡´ boundary class
 */
 class SignOutUI
 {
-	public:
-		void startInterface(){out_fp << "1.2. È¸¿øÅ»Åğ" << endl;};
+public:
+	void startInterface() { out_fp << "1.2. íšŒì›íƒˆí‡´" << endl; };
 
 };
 
 /*
-	Å¬·¡½º ÀÌ¸§ : LogIn
-	ÀÇ¹Ì	  : ·Î±×ÀÎ control class
+	í´ë˜ìŠ¤ ì´ë¦„ : LogIn
+	ì˜ë¯¸	  : ë¡œê·¸ì¸ control class
 */
 class LogIn
 {
-	public: 
-		void loginMember(string id, string password);
+public:
+	void loginMember(string id, string password);
 };
 
 /*
-	Å¬·¡½º ÀÌ¸§ : LogInUI
-	ÀÇ¹Ì	  :  ·Î±×ÀÎ boundary class
+	í´ë˜ìŠ¤ ì´ë¦„ : LogInUI
+	ì˜ë¯¸	  :  ë¡œê·¸ì¸ boundary class
 */
 class LogInUI
 {
-	public:
-		void startInterface(){out_fp << "2.1. ·Î±×ÀÎ" << endl;};
+public:
+	void startInterface() { out_fp << "2.1. ë¡œê·¸ì¸" << endl; };
 
 };
 
 /*
-	Å¬·¡½º ÀÌ¸§ : LogOut
-	ÀÇ¹Ì	  : ·Î±×¾Æ¿ô control class
+	í´ë˜ìŠ¤ ì´ë¦„ : LogOut
+	ì˜ë¯¸	  : ë¡œê·¸ì•„ì›ƒ control class
 */
 class LogOut
 {
-	public: 
-		void logoutMember(Member user){
-			out_fp << "> " << user.getID() << endl;
-			
-			loginUser = nullptr;
-		};
+public:
+	void logoutMember(Member user) {
+		out_fp << "> " << user.getID() << endl;
+
+		loginUser = nullptr;
+	};
 };
 
 /*
-	Å¬·¡½º ÀÌ¸§ : LogOutUI
-	ÀÇ¹Ì	  :  ·Î±×¾Æ¿ô boundary class
+	í´ë˜ìŠ¤ ì´ë¦„ : LogOutUI
+	ì˜ë¯¸	  :  ë¡œê·¸ì•„ì›ƒ boundary class
 */
 class LogOutUI
 {
-	public:
-		void startInterface(){out_fp << "2.2. ·Î±×¾Æ¿ô" << endl;};
+public:
+	void startInterface() { out_fp << "2.2. ë¡œê·¸ì•„ì›ƒ" << endl; };
 
 };
 
 /*
-	Å¬·¡½º ÀÌ¸§ : SearchCloth
-	ÀÇ¹Ì	  : »óÇ°°Ë»ö control class
+	í´ë˜ìŠ¤ ì´ë¦„ : SearchCloth
+	ì˜ë¯¸	  : ìƒí’ˆê²€ìƒ‰ control class
 */
 class SearchCloth
 {
-	public: 
-		void searchClothByName(string clothName);
+public:
+	void searchClothByName(string clothName);
 };
 
 /*
-	Å¬·¡½º ÀÌ¸§ : SearchClothUI
-	ÀÇ¹Ì	  :  »óÇ°°Ë»ö boundary class
+	í´ë˜ìŠ¤ ì´ë¦„ : SearchClothUI
+	ì˜ë¯¸	  :  ìƒí’ˆê²€ìƒ‰ boundary class
 */
 class SearchClothUI
 {
-	public:
-		void startInterface(){out_fp << "4.1. »óÇ° Á¤º¸ °Ë»ö" << endl;};
+public:
+	void startInterface() { out_fp << "4.1. ìƒí’ˆ ì •ë³´ ê²€ìƒ‰" << endl; };
 
 };
 
@@ -307,183 +396,184 @@ int main()
 
 void doTask()
 {
-	//cout << "doTaskµé¾î¿È"<< endl;
-	// ¸Ş´º ÆÄ½ÌÀ» À§ÇÑ level ±¸ºĞÀ» À§ÇÑ º¯¼ö
-	Member m = Member("TMP_NAME", "000-0000","tmp_id","tmp_pw");
-	loginUser = &m;	//·Î±×ÀÎÇÑ È¸¿ø¾ø¾î¼­ ÀÓ½Ã·Î ¸¸µë
+	//cout << "doTaskë“¤ì–´ì˜´"<< endl;
+	// ë©”ë‰´ íŒŒì‹±ì„ ìœ„í•œ level êµ¬ë¶„ì„ ìœ„í•œ ë³€ìˆ˜
+	Member m = Member("TMP_NAME", "000-0000", "tmp_id", "tmp_pw");
+	loginUser = &m;	//ë¡œê·¸ì¸í•œ íšŒì›ì—†ì–´ì„œ ì„ì‹œë¡œ ë§Œë“¬
 	// Members.push_back(m);
+	string searchProductName;	// 4.1 ìƒí’ˆ ì •ë³´ ê²€ìƒ‰ì—ì„œ ê²€ìƒ‰í•œ ìƒí’ˆ ì´ë¦„ì„ ì €ì¥í•˜ê¸° ìœ„í•œ ë³€ìˆ˜ (4.2 ìƒí’ˆ êµ¬ë§¤ì—ì„œ í™œìš©) 
 
 	int is_program_exit = 0;
-	
-	while(!is_program_exit)
-	{	
-		string dummy;	// ·çÇÁ ¹æÁö¸¦ À§ÇÑ º¯¼ö
+
+	while (!is_program_exit)
+	{
+		string dummy;	// ë£¨í”„ ë°©ì§€ë¥¼ ìœ„í•œ ë³€ìˆ˜
 		int menu_level_1 = 0, menu_level_2 = 0;
-		// ÀÔ·ÂÆÄÀÏ¿¡¼­ ¸Ş´º ¼ıÀÚ 2°³¸¦ ÀĞ±â
+		// ì…ë ¥íŒŒì¼ì—ì„œ ë©”ë‰´ ìˆ«ì 2ê°œë¥¼ ì½ê¸°
 		in_fp >> menu_level_1 >> menu_level_2;
-		cout << "È®ÀÎ¿ë) ÇöÀç ¹ŞÀº method ¹øÈ£: "<< menu_level_1 << " " <<menu_level_2<< endl;
+		//cout << "í™•ì¸ìš©) í˜„ì¬ ë°›ì€ method ë²ˆí˜¸: " << menu_level_1 << " " << menu_level_2 << endl;
 		
-		
-		
-		// ¸Ş´º ±¸ºĞ ¹× ÇØ´ç ¿¬»ê ¼öÇà
-		switch(menu_level_1)
+		// ë©”ë‰´ êµ¬ë¶„ ë° í•´ë‹¹ ì—°ì‚° ìˆ˜í–‰
+		switch (menu_level_1)
 		{
-			case 1:
-			{		
-				switch(menu_level_2)
-				{
-					case 1:	// "1.1. È¸¿ø°¡ÀÔ¡° ¸Ş´º ºÎºĞ
-					{						
-						// join() ÇÔ¼ö¿¡¼­ ÇØ´ç ±â´É ¼öÇà 
-						SignUpUI* startSignUpUI = new SignUpUI;
-						startSignUpUI->signUpRequest();
-						
-						//join();
-						break;
-					}
-					case 2:	// 1.2 È¸¿øÅ»Åğ
-					{
-						SignOutUI signOutUI = SignOutUI();
-						SignOut signOut = SignOut();
-
-						signOutUI.startInterface();
-						signOut.deleteMember(*loginUser);
-
-						break;
-					}
-				}
-				break;
-			}
-			case 2:
-			{	
-				switch(menu_level_2)
-				{
-					case 1:	// 2.1 ·Î±×ÀÎ
-					{		
-						string id, password;		
-						in_fp >> id;	
-						in_fp >> password;
-
-						LogInUI logInUI = LogInUI();
-						LogIn logIn = LogIn();
-
-						logInUI.startInterface();
-						logIn.loginMember(id,password);
-						break;
-					}
-					case 2:	// 2.2 ·Î±×¾Æ¿ô
-					{
-						LogOutUI logOutUI = LogOutUI();
-						LogOut logout = LogOut();
-
-						logOutUI.startInterface();
-						logout.logoutMember(*loginUser);
-						break;
-					}
-				}
-				break;
-			}
-			case 3:
+		case 1:
+		{
+			switch (menu_level_2)
 			{
-				switch(menu_level_2)
-				{
-					case 1:	// 3.1 ÆÇ¸Å ÀÇ·ù µî·Ï
-					{				
-						string clothName, companyName;
-						int price, quantity;
-						in_fp >> clothName;	
-						in_fp >> companyName;	
-						in_fp >> price;	
-						in_fp >> quantity;
+			case 1:	// "1.1. íšŒì›ê°€ì…â€œ ë©”ë‰´ ë¶€ë¶„
+			{
+				SignUpUI* startSignUpUI = new SignUpUI;
+				startSignUpUI->signUpRequest();
 
-						AddSellCloth addSellCloth = AddSellCloth();
-						AddSellClothUI addSellClothUI = AddSellClothUI();
-
-						addSellClothUI.startInterface();
-						Cloth cloth = addSellClothUI.createSellCloth(clothName, companyName,price, quantity);
-						addSellCloth.addSellCloth(cloth, *loginUser);
-						break;
-					}
-					case 2:	// 3.2 µî·Ï »óÇ° Á¶È¸
-					{
-			   
-						break;
-					}
-					case 3:	// 3.3 ÆÇ¸Å ¿Ï·á »óÇ° Á¶È¸
-					{
-			   
-						break;
-					}
-				}
+				out_fp << endl;
 				break;
 			}
-			case 4:
+			case 2:	// 1.2 íšŒì›íƒˆí‡´
 			{
-				switch(menu_level_2)
-				{
-					case 1:	// 4.1 »óÇ° Á¤º¸ °Ë»ö
-					{		
-						string clothName;		
-						in_fp >> clothName;	
+				SignOutUI signOutUI = SignOutUI();
+				SignOut signOut = SignOut();
 
-						SearchCloth searchCloth = SearchCloth();
-						SearchClothUI searchCLothUI = SearchClothUI();
+				signOutUI.startInterface();
+				signOut.deleteMember(*loginUser);
 
-						searchCLothUI.startInterface();
-						searchCloth.searchClothByName(clothName);
-						break;
-					}
-					case 2:	// 4.2 »óÇ° ±¸¸Å
-					{
-			   
-						break;
-					}
-					case 3:	// 4.3 »óÇ° ±¸¸Å ³»¿ª Á¶È¸
-					{
-			   
-						break;
-					}
-					case 4:	// 4.4 »óÇ° ±¸¸Å¸¸Á·µµ Æò°¡
-					{
-						in_fp >> menu_level_1;	// ¹«ÇÑ·çÇÁ ¹æÁö±¸¹®, ÄÚµå ¿Ï¼ºÇÏ¸é Áö¿öÁÖ¼¼¿ä
-						break;
-					}
-				}
+				out_fp << endl;
 				break;
 			}
-			case 5:
+			}
+			break;
+		}
+		case 2:
+		{
+			switch (menu_level_2)
 			{
-				switch(menu_level_2)
-				{
-					case 1:	// 5.1 ÆÇ¸Å »óÇ° Åë°è
-					{				
-		
-						break;
-					}
-					
-				}
+			case 1:	// 2.1 ë¡œê·¸ì¸
+			{
+				string id, password;
+				in_fp >> id;
+				in_fp >> password;
+
+				LogInUI logInUI = LogInUI();
+				LogIn logIn = LogIn();
+
+				logInUI.startInterface();
+				logIn.loginMember(id, password);
+				//cout << loginUser->getID() << " " << loginUser->getName() << endl;
+
+				out_fp << endl;
 				break;
 			}
-			case 6:
+			case 2:	// 2.2 ë¡œê·¸ì•„ì›ƒ
 			{
-				switch(menu_level_2)
-				{
-					case 1:	// 6.1 Á¾·á
-					{	
-						is_program_exit = 1;							
-						program_exit();
-						break;						
-					}
-					
-				}
+				LogOutUI logOutUI = LogOutUI();
+				LogOut logout = LogOut();
+
+				logOutUI.startInterface();
+				logout.logoutMember(*loginUser);
+
+				out_fp << endl;
 				break;
-			}		  		  		  		
+			}
+			}
+			break;
+		}
+		case 3:
+		{
+			switch (menu_level_2)
+			{
+			case 1:	// 3.1 íŒë§¤ ì˜ë¥˜ ë“±ë¡
+			{
+				string clothName, companyName;
+				int price, quantity;
+				in_fp >> clothName;
+				in_fp >> companyName;
+				in_fp >> price;
+				in_fp >> quantity;
+
+				AddSellCloth addSellCloth = AddSellCloth();
+				AddSellClothUI addSellClothUI = AddSellClothUI();
+
+				addSellClothUI.startInterface();
+				Cloth cloth = addSellClothUI.createSellCloth(clothName, companyName, price, quantity);
+				addSellCloth.addSellCloth(cloth, *loginUser);
+
+				out_fp << endl;
+				break;
+			}
+			}
+			break;
+		}
+		case 4:
+		{
+			switch (menu_level_2)
+			{
+			case 1:	// 4.1 ìƒí’ˆ ì •ë³´ ê²€ìƒ‰
+			{
+				string clothName;
+				in_fp >> clothName;
+				searchProductName = clothName;	// ê²€ìƒ‰í•œ ìƒí’ˆ ì´ë¦„ ì €ì¥ (êµ¬ë§¤í• ë•Œë¥¼ ëŒ€ë¹„í•´)
+				SearchCloth searchCloth = SearchCloth();
+				SearchClothUI searchCLothUI = SearchClothUI();
+
+				searchCLothUI.startInterface();
+				searchCloth.searchClothByName(clothName);
+
+				out_fp << endl;
+				break;
+			}
+			case 2:	// 4.2 ìƒí’ˆ êµ¬ë§¤
+			{
+				PurchaseClothUI* startPurchaseClothUI = new PurchaseClothUI;
+				startPurchaseClothUI->purchase(loginUser->getID(), searchProductName);
+
+
+				out_fp << endl;
+				break;
+			}
+			case 3:	// 4.3 ìƒí’ˆ êµ¬ë§¤ ë‚´ì—­ ì¡°íšŒ
+			{
+				PurchaseListUI* newPurchaseListUI = new PurchaseListUI;
+				newPurchaseListUI->showPurchaseList(loginUser->getID());
+
+				out_fp << endl;
+				break;
+			}
+			case 4:	// 4.4 ìƒí’ˆ êµ¬ë§¤ë§Œì¡±ë„ í‰ê°€
+			{
+				string productName; 
+				int rate;
+				in_fp >> productName >> rate;
+
+				string loginUserID = loginUser->getID();
+
+				RatingUI* newRatingUI = new RatingUI;
+				newRatingUI->ratingProduct(loginUserID, productName, rate);
+
+
+				out_fp << endl;
+				break;
+			}
+			}
+			break;
+		}
+		case 6:
+		{
+			switch (menu_level_2)
+			{
+			case 1:	// 6.1 ì¢…ë£Œ
+			{
+				is_program_exit = 1;
+				program_exit();
+				break;
+			}
+
+			}
+			break;
+		}
 		}
 	}
-	
+
 	return;
 }
-  
 
 
 
@@ -493,14 +583,15 @@ void doTask()
 
 
 
-// ÇÔ¼ö ¼±¾ğ
+
+// í•¨ìˆ˜ ì„ ì–¸
 
 /*
-	ÇÔ¼ö ÀÌ¸§	: Member:::Member()
-	±â´É		: »õ·Î¿î È¸¿øÀ» ¸¸µå´Â »ı¼ºÀÚ
-	Àü´Ş ÀÎÀÚ	: string input_name, string input_SSN, string input_ID, string input_password
-	¹İÈ¯°ª	: ¾øÀ½
-	ÀÛ¼ºÀÚ	: ½ÅÁ¾È­
+	í•¨ìˆ˜ ì´ë¦„	: Member:::Member()
+	ê¸°ëŠ¥		: ìƒˆë¡œìš´ íšŒì›ì„ ë§Œë“œëŠ” ìƒì„±ì
+	ì „ë‹¬ ì¸ì	: string input_name, string input_SSN, string input_ID, string input_password
+	ë°˜í™˜ê°’	: ì—†ìŒ
+	ì‘ì„±ì	: ì‹ ì¢…í™”
 */
 Member::Member(string input_name, string input_SSN, string input_ID, string input_password)
 {
@@ -513,106 +604,108 @@ Member::Member(string input_name, string input_SSN, string input_ID, string inpu
 
 
 /*
-	ÇÔ¼ö ÀÌ¸§	: SignUpUI::signUpRequest()
-	±â´É		: È¸¿ø°¡ÀÔ ÁøÇàÀ» ½ÃÀÛÇÏ´Â ÇÔ¼ö, È¸¿ø°¡ÀÔ¿¡ ÇÊ¿äÇÑ Á¤º¸¸¦ ÀÔ·Â¹ŞÀ½
-	Àü´Ş ÀÎÀÚ	: ¾øÀ½
-	¹İÈ¯°ª	: ¾øÀ½, SignUp->createMemRequest() È£Ãâ 
-	ÀÛ¼ºÀÚ	: ½ÅÁ¾È­
+	í•¨ìˆ˜ ì´ë¦„	: SignUpUI::signUpRequest()
+	ê¸°ëŠ¥		: íšŒì›ê°€ì… ì§„í–‰ì„ ì‹œì‘í•˜ëŠ” í•¨ìˆ˜, íšŒì›ê°€ì…ì— í•„ìš”í•œ ì •ë³´ë¥¼ ì…ë ¥ë°›ìŒ
+	ì „ë‹¬ ì¸ì	: ì—†ìŒ
+	ë°˜í™˜ê°’	: ì—†ìŒ, SignUp->createMemRequest() í˜¸ì¶œ
+	ì‘ì„±ì	: ì‹ ì¢…í™”
 */
 void SignUpUI::signUpRequest()
 {
-	// Ãâ·Â Çü½Ä
-	out_fp << "1.1. È¸¿ø°¡ÀÔ" << endl;
-	
+	// ì¶œë ¥ í˜•ì‹
+	out_fp << "1.1. íšŒì›ê°€ì…" << endl;
+
 	string name, SSN, ID, password;
 	in_fp >> name >> SSN >> ID >> password;
-	
+
 	SignUp* startSignUp = new SignUp;
 	startSignUp->createMemRequest(name, SSN, ID, password);
-	
+
 }
 
 /*
-	ÇÔ¼ö ÀÌ¸§	: SignUpUI::createMemRequest(string name, string SSN, string ID, string password)
-	±â´É		: È¸¿ø°¡ÀÔ ÁøÇà, ÀÔ·Â¹ŞÀº Á¤º¸·Î Member Å¬·¡½º ¸¸µé¾î Members º¤ÅÍ¿¡ ÀúÀå
-	Àü´Ş ÀÎÀÚ	: string name, string SSN, string ID, string password
-	¹İÈ¯°ª	: ¾øÀ½
-	ÀÛ¼ºÀÚ	: ½ÅÁ¾È­
+	í•¨ìˆ˜ ì´ë¦„	: SignUpUI::createMemRequest(string name, string SSN, string ID, string password)
+	ê¸°ëŠ¥		: íšŒì›ê°€ì… ì§„í–‰, ì…ë ¥ë°›ì€ ì •ë³´ë¡œ Member í´ë˜ìŠ¤ ë§Œë“¤ì–´ Members ë²¡í„°ì— ì €ì¥
+	ì „ë‹¬ ì¸ì	: string name, string SSN, string ID, string password
+	ë°˜í™˜ê°’	: ì—†ìŒ
+	ì‘ì„±ì	: ì‹ ì¢…í™”
 */
 void SignUp::createMemRequest(string name, string SSN, string ID, string password)
 {
 	Member newMem = Member(name, SSN, ID, password);
 	Members.push_back(newMem);
-	
-	cout << "È®ÀÎ¿ë(¸â¹ö ÀúÀåµÆ´ÂÁö) ¹æ±İ ÀúÀåµÈ °èÁ¤ÀÇ »ç¶÷ ÀÌ¸§  "<<Members.back().getName() << endl;
-	// Ãâ·Â Çü½Ä
-	out_fp << "> " << name << " " << SSN << " " << ID << " " << password <<endl;
+
+	//cout << "í™•ì¸ìš©(ë©¤ë²„ ì €ì¥ëëŠ”ì§€) ë°©ê¸ˆ ì €ì¥ëœ ê³„ì •ì˜ ì‚¬ëŒ ì´ë¦„  " << Members.back().getName() << endl;
+	// ì¶œë ¥ í˜•ì‹
+	out_fp << "> " << name << " " << SSN << " " << ID << " " << password << endl;
 }
 
 /*
-	ÇÔ¼ö ÀÌ¸§	: AddSellCloth::addSellCloth(Cloth cloth, Member user)
-	±â´É		: ÆÇ¸ÅÀÚ »ı¼º ¹× ÀÌ¹Ì Á¸Àç½Ã ÆÇ¸ÅÀÇ·ù ¸ñ·Ï¿¡ Cloth Ãß°¡ 
-	Àü´Ş ÀÎÀÚ	: Cloth cloth, Member user
-	¹İÈ¯°ª	: ¾øÀ½
-	ÀÛ¼ºÀÚ	: ÇÏÃ¤Çü
+	í•¨ìˆ˜ ì´ë¦„	: AddSellCloth::addSellCloth(Cloth cloth, Member user)
+	ê¸°ëŠ¥		: íŒë§¤ì ìƒì„± ë° ì´ë¯¸ ì¡´ì¬ì‹œ íŒë§¤ì˜ë¥˜ ëª©ë¡ì— Cloth ì¶”ê°€
+	ì „ë‹¬ ì¸ì	: Cloth cloth, Member user
+	ë°˜í™˜ê°’	: ì—†ìŒ
+	ì‘ì„±ì	: í•˜ì±„í˜•
 */
 void AddSellCloth::addSellCloth(Cloth cloth, Member user)
 {
-			string user_id = user.getID();
-			Clothes.push_back(cloth);
-			if(find(Sellers.begin(), Sellers.end(), user_id) == Sellers.end()){
-				Seller seller = Seller(user);
-				seller.createSellCloth(cloth);
-				Sellers.push_back(seller);
-				cout<<"check1 "<<seller.getName()<<"\n";
+	string user_id = user.getID();
+	Clothes.push_back(cloth);
+	if (find(Sellers.begin(), Sellers.end(), user_id) == Sellers.end()) {
+		Seller seller = Seller(user);
+		seller.createSellCloth(cloth);
+		Sellers.push_back(seller);
+		//cout << "check1 " << seller.getName() << "\n";
 
-			}else{
-				int idx = find(Sellers.begin(), Sellers.end(), user_id)-Sellers.begin();
-				Sellers[idx].createSellCloth(cloth);
-				cout<<"check2 "<<Sellers[idx].getName()<<"\n";
-			}
-			out_fp << "> " << cloth.getName() << " " << cloth.getCompany() << " " << cloth.getprice() << " " << cloth.getquantity() <<endl;
-			
+	}
+	else {
+		int idx = find(Sellers.begin(), Sellers.end(), user_id) - Sellers.begin();
+		Sellers[idx].createSellCloth(cloth);
+		//cout << "check2 " << Sellers[idx].getName() << "\n";
+	}
+	out_fp << "> " << cloth.getName() << " " << cloth.getCompany() << " " << cloth.getprice() << " " << cloth.getquantity() << endl;
+
 };
 
 /*
-	ÇÔ¼ö ÀÌ¸§	: AddSellClothUI::startInterface()
-	±â´É		: ÆÇ¸ÅÀÇ·ù Ãß°¡ UI»ı¼º
-	Àü´Ş ÀÎÀÚ	: ¾øÀ½
-	¹İÈ¯°ª	: ¾øÀ½
-	ÀÛ¼ºÀÚ	: ÇÏÃ¤Çü
+	í•¨ìˆ˜ ì´ë¦„	: AddSellClothUI::startInterface()
+	ê¸°ëŠ¥		: íŒë§¤ì˜ë¥˜ ì¶”ê°€ UIìƒì„±
+	ì „ë‹¬ ì¸ì	: ì—†ìŒ
+	ë°˜í™˜ê°’	: ì—†ìŒ
+	ì‘ì„±ì	: í•˜ì±„í˜•
 */
 void AddSellClothUI::startInterface()
 {
-			out_fp << "3.1. ÆÇ¸Å ÀÇ·ù µî·Ï" << endl;
+	out_fp << "3.1. íŒë§¤ ì˜ë¥˜ ë“±ë¡" << endl;
 }
 
 /*
-	ÇÔ¼ö ÀÌ¸§	: LogIn::loginMember(string id, string password)
-	±â´É		: ·Î±×ÀÎ
-	Àü´Ş ÀÎÀÚ	: string id, string password
-	¹İÈ¯°ª	: ¾øÀ½
-	ÀÛ¼ºÀÚ	: ÇÏÃ¤Çü
+	í•¨ìˆ˜ ì´ë¦„	: LogIn::loginMember(string id, string password)
+	ê¸°ëŠ¥		: ë¡œê·¸ì¸
+	ì „ë‹¬ ì¸ì	: string id, string password
+	ë°˜í™˜ê°’	: ì—†ìŒ
+	ì‘ì„±ì	: í•˜ì±„í˜•
 */
-void LogIn::loginMember(string id, string password){
-			int tmp_idx1 = find(Members.begin(), Members.end(), id)-Members.begin();
-			Member tmp = Members[tmp_idx1];
+void LogIn::loginMember(string id, string password) {
+	int tmp_idx1 = find(Members.begin(), Members.end(), id) - Members.begin();
+	Member tmp = Members[tmp_idx1];
 
-			if(tmp.getPassword().compare(password)==0){
-				out_fp << "> " << tmp.getID() <<" "<<tmp.getPassword()<< endl;
-			}else{
-				out_fp << "> ºñ¹Ğ¹øÈ£°¡ Æ²¸³´Ï´Ù." << endl;
-			}
-			
-			loginUser = &Members[tmp_idx1];
-		};
+	if (tmp.getPassword().compare(password) == 0) {
+		out_fp << "> " << tmp.getID() << " " << tmp.getPassword() << endl;
+	}
+	else {
+		out_fp << "> ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë¦½ë‹ˆë‹¤." << endl;
+	}
+
+	loginUser = &Members[tmp_idx1];
+};
 
 /*
-	ÇÔ¼ö ÀÌ¸§	: SearchCloth::searchClothByName(string clothName)
-	±â´É		: »óÇ°°Ë»ö
-	Àü´Ş ÀÎÀÚ	: string clothName
-	¹İÈ¯°ª	: ¾øÀ½
-	ÀÛ¼ºÀÚ	: ÇÏÃ¤Çü
+	í•¨ìˆ˜ ì´ë¦„	: SearchCloth::searchClothByName(string clothName)
+	ê¸°ëŠ¥		: ìƒí’ˆê²€ìƒ‰
+	ì „ë‹¬ ì¸ì	: string clothName
+	ë°˜í™˜ê°’	: ì—†ìŒ
+	ì‘ì„±ì	: í•˜ì±„í˜•
 */
 void SearchCloth::searchClothByName(string clothName)
 {
@@ -624,7 +717,7 @@ void SearchCloth::searchClothByName(string clothName)
 			int tmp_idx1 = find(clothlist.begin(), clothlist.end(), clothName) - clothlist.begin();
 			Cloth cloth = clothlist[tmp_idx1];
 			out_fp << "> " << s.getID() << " " << cloth.getName() << " " << cloth.getCompany()
-				   << " " << cloth.getprice() << " " << cloth.getquantity() << " " << cloth.getAverageEvaluation() << endl;
+				<< " " << cloth.getprice() << " " << cloth.getquantity() << " " << cloth.getAverageEvaluation() << endl;
 			break;
 		}
 	}
@@ -634,24 +727,238 @@ void SearchCloth::searchClothByName(string clothName)
 
 
 
+/*
+	í•¨ìˆ˜ ì´ë¦„	: PurchaseProcudt::PurchaseProcudt(string buyer, Cloth* product)
+	ê¸°ëŠ¥		: ìƒˆë¡œìš´ êµ¬ë§¤ë‚´ì—­ì„ ë§Œë“œëŠ” ìƒì„±ì
+	ì „ë‹¬ ì¸ì	: string buyer, Cloth* product
+	ë°˜í™˜ê°’	: ì—†ìŒ
+	ì‘ì„±ì	: ì‹ ì¢…í™”
+*/
+
+PurchaseProcudt::PurchaseProcudt(string input_buyerID, Cloth* input_product) {
+	buyerID = input_buyerID;
+	product = input_product;
+}
 
 
 
+/*
+	í•¨ìˆ˜ ì´ë¦„	: PurchaseClothUI::purchase()
+	ê¸°ëŠ¥		: ìƒí’ˆ êµ¬ë§¤ UIì—ì„œ í˜¸ì¶œ
+	ì „ë‹¬ ì¸ì	: string productName
+	ë°˜í™˜ê°’		: ì—†ìŒ
+	ì‘ì„±ì		: ì‹ ì¢…í™”
+*/
+void PurchaseClothUI::purchase(string buyerID, string productName)
+{
+	// ì¶œë ¥ í˜•ì‹
+	out_fp << "4.2. ìƒí’ˆ êµ¬ë§¤" << endl;
+
+	PurchaseCloth* startPurchaseCloth = new PurchaseCloth;
+	startPurchaseCloth->purchaseClothRequest(buyerID, productName);
+
+}
+
+
+/*
+	í•¨ìˆ˜ ì´ë¦„	: PurchaseCloth::purchaseClothRequest()
+	ê¸°ëŠ¥		: ìƒí’ˆ êµ¬ë§¤ ì§„í–‰( productNameì„ ë°›ì•„ ì´ë¦„ì´ ê°™ì€ Clothë¥¼ ì°¾ê³  ìƒˆë¡œìš´ êµ¬ë§¤ë‚´ì—­ ìƒì„±, Closthì˜ ìˆ˜ëŸ‰ ë³€ê²½ í•¨ìˆ˜ í˜¸ì¶œ)
+	ì „ë‹¬ ì¸ì	: string productName
+	ë°˜í™˜ê°’		: ì—†ìŒ
+	ì‘ì„±ì		: ì‹ ì¢…í™”
+*/
+void PurchaseCloth::purchaseClothRequest(string buyerID, string productName)
+{
+	for (vector< Cloth>::size_type i = 0; i < Clothes.size(); i++) {
+		if (Clothes[i].getName() == productName && Clothes[i].getquantity() > 0) {	// ìƒí’ˆëª©ë¡ ì¤‘ ì¼ì¹˜í•˜ëŠ” ì´ë¦„ì´ ìˆë‹¤ë©´
+			// 1. êµ¬ë§¤ë‚´ì—­ì— ì¶”ê°€
+			PurchaseProcudt* newPurchaseProcudt = new PurchaseProcudt(buyerID, &Clothes[i]);
+			PurchaseProductList.push_back(*newPurchaseProcudt);
+
+			// 2. ìƒí’ˆ ìˆ˜ëŸ‰ -1
+			Clothes[i].buyCloth();
+
+			// 3. productNmaeì„ í†µí•´ Sellerë¥¼ ì°¾ê³  seller ID ì¶œë ¥
+			for (vector<Seller>::size_type j = 0; j < Sellers.size(); j++) {				
+				for (vector<Cloth>::size_type k = 0; k < Sellers[j].getSellClothlist().size(); k++) {
+					if (Sellers[j].getSellClothlist()[k].getName() == productName) {
+						out_fp << "> " << Sellers[j].getID();
+					}
+				}
+			}
+
+			// 4. ìƒí’ˆëª… ì¶œë ¥
+			out_fp <<" " << newPurchaseProcudt->getProduct()->getName() << endl;
+		}
+	}
+	
+}
+
+/*
+	í•¨ìˆ˜ ì´ë¦„	: PurchaseListUI::showPurchaseList(string buyerID)
+	ê¸°ëŠ¥		: êµ¬ë§¤ ë‚´ì—­ ì¡°íšŒ UI í˜¸ì¶œ
+	ì „ë‹¬ ì¸ì	: string buyerID
+	ë°˜í™˜ê°’		: ì—†ìŒ
+	ì‘ì„±ì		: ì‹ ì¢…í™”
+*/
+void PurchaseListUI::showPurchaseList(string buyerID)
+{
+	// ì¶œë ¥ í˜•ì‹
+	out_fp << "4.3. ìƒí’ˆ êµ¬ë§¤ ë‚´ì—­ ì¡°íšŒ" << endl;
+
+	PurchaseList* newPurchaseList = new PurchaseList;
+	newPurchaseList->showPurchaseProduct(buyerID);
+}
+
+/*
+	í•¨ìˆ˜ ì´ë¦„	: Cloth::buyCloth()
+	ê¸°ëŠ¥		: ìƒí’ˆì˜ ìˆ˜ëŸ‰ ë³€ê²½
+	ì „ë‹¬ ì¸ì	: string productName
+	ë°˜í™˜ê°’		: ì—†ìŒ
+	ì‘ì„±ì		: ì‹ ì¢…í™”
+*/
+void Cloth::buyCloth() {
+	quantity -= 1;
+}
+
+
+/*
+	í•¨ìˆ˜ ì´ë¦„	: PurchaseList::showPurchaseProduct(string buyerID)
+	ê¸°ëŠ¥		: êµ¬ë§¤ ë‚´ì—­ í˜¸ì¸Œ
+	ì „ë‹¬ ì¸ì	: string buyerID
+	ë°˜í™˜ê°’		: ì—†ìŒ
+	ì‘ì„±ì		: ì‹ ì¢…í™”
+*/
+void PurchaseList::showPurchaseProduct(string buyerID)
+{
+	for (vector< PurchaseProcudt>::size_type i = 0; i < PurchaseProductList.size(); i++) {
+		if (PurchaseProductList[i].getBuyerID() == buyerID) {
+
+			for (vector<Seller>::size_type j = 0; j < Sellers.size(); j++) {
+				for (vector<Cloth>::size_type k = 0; k < Sellers[j].getSellClothlist().size(); k++) {
+					if (Sellers[j].getSellClothlist()[k].getName() == PurchaseProductList[i].getProduct()->getName()) {
+						out_fp << "> " << Sellers[j].getID();
+					}
+				}
+			}
+			out_fp << " " << PurchaseProductList[i].getProduct()->getName() << " " << PurchaseProductList[i].getProduct()->getCompany();
+			out_fp << " " << PurchaseProductList[i].getProduct()->getprice() << " " << PurchaseProductList[i].getProduct()->getquantity();
+			out_fp << " " << PurchaseProductList[i].getProduct()->getAverageEvaluation() << endl;
+
+		}
+	}
+}
+
+
+
+/*
+	í•¨ìˆ˜ ì´ë¦„	: RatingUI::ratingProduct(string productName) 
+	ê¸°ëŠ¥		: êµ¬ë§¤ë§Œì¡±ë„ í‰ê°€ UI í˜¸ì¶œ
+	ì „ë‹¬ ì¸ì	: string productName
+	ë°˜í™˜ê°’		: ì—†ìŒ
+	ì‘ì„±ì		: ì‹ ì¢…í™”
+*/
+void RatingUI::ratingProduct(string buyerID, string productName, int rate)
+{
+	// ì¶œë ¥ í˜•ì‹
+	out_fp << "4.4. ìƒí’ˆ êµ¬ë§¤ë§Œì¡±ë„ í‰ê°€" << endl;
+	Rating* newRating = new Rating;
+	newRating->createRate(buyerID, productName, rate);
+}
+
+/*
+	í•¨ìˆ˜ ì´ë¦„	: ClothRating::ClothRating(Cloth* cloth, int rate)
+	ê¸°ëŠ¥		: ìƒí’ˆ êµ¬ë§¤ë§Œì¡±ë„ ìƒì„±ì
+	ì „ë‹¬ ì¸ì	: Cloth* cloth, int rate
+	ë°˜í™˜ê°’		: ClothRating
+	ì‘ì„±ì		: ì‹ ì¢…í™”
+*/
+ClothRating::ClothRating(Cloth* input_cloth, int input_rate)
+{
+	cloth = input_cloth;
+	rate = input_rate;
+}
+
+
+
+/*
+	í•¨ìˆ˜ ì´ë¦„	: Rating::createRate(string productName)
+	ê¸°ëŠ¥		: êµ¬ë§¤ë§Œì¡±ë„ í‰ê°€ í˜¸ì¶œ
+	ì „ë‹¬ ì¸ì	: string productName
+	ë°˜í™˜ê°’		: ì—†ìŒ
+	ì‘ì„±ì		: ì‹ ì¢…í™”
+*/
+void Rating::createRate(string buyerID, string productName, int rate)
+{
+	int avg;
+	// ì´ ìƒí’ˆì˜ êµ¬ë§¤ìì¸ì§€ í™•ì¸ í•„ìš”
+	for (vector< PurchaseProcudt>::size_type i = 0; i < PurchaseProductList.size(); i++) { // êµ¬ë§¤ëª©ë¡ ë²¡í„° forë¬¸
+		if (PurchaseProductList[i].getBuyerID() == buyerID && PurchaseProductList[i].getProduct()->getName() == productName) {
+			PurchaseProductList[i].getProduct()->updateRate(PurchaseProductList[i].getProduct(), rate);
+			avg = PurchaseProductList[i].getProduct()->getAverageEvaluation();
+		}
+	}
+
+	// íŒë§¤ì ì•„ì´ë”” ì•Œì•„ì•¼í•¨..!ã…œ
+	for (vector< PurchaseProcudt>::size_type i = 0; i < PurchaseProductList.size(); i++) {
+		if (PurchaseProductList[i].getBuyerID() == buyerID) {
+
+			for (vector<Seller>::size_type j = 0; j < Sellers.size(); j++) {
+				for (vector<Cloth>::size_type k = 0; k < Sellers[j].getSellClothlist().size(); k++) {
+					if (Sellers[j].getSellClothlist()[k].getName() == productName) {
+						out_fp << "> " << Sellers[j].getID();
+					}
+				}
+			}
+			out_fp << " " << productName << " "<< avg << endl;
+
+		}
+	}
+
+}
+
+/*
+	í•¨ìˆ˜ ì´ë¦„	: Cloth::updateRate(int rate)
+	ê¸°ëŠ¥		: ìƒí’ˆì˜ í‰ê·  êµ¬ë§¤ë§Œì¡±ë„ë¥¼ ë³€ê²½í•œë‹¤.
+	ì „ë‹¬ ì¸ì	: int rate
+	ë°˜í™˜ê°’		: ì—†ìŒ
+	ì‘ì„±ì		: ì‹ ì¢…í™”
+*/
+void Cloth::updateRate(Cloth* cloth, int rate)
+{
+	// 1. êµ¬ë§¤ë§Œì¡±ë„ ìƒì„±
+	ClothRating* newClothRating = new ClothRating( cloth, rate);
+	ClothRatingList.push_back(*newClothRating);
+	
+	double updateRate = 0;
+	double ratecount = 0;
+	double avgRate = 0;
+	for (vector< ClothRating>::size_type i = 0; i < ClothRatingList.size(); i++) { // êµ¬ë§¤ëª©ë¡ ë²¡í„° forë¬¸
+		if (ClothRatingList[i].getCloth() == cloth) {
+			updateRate += ClothRatingList[i].getRate();
+			ratecount += 1;
+		}
+	}
+	avgRate = updateRate / ratecount;
+
+	averageEvaluation = round(avgRate);
+
+}
 
 
 
 
 /*
-	ÇÔ¼ö ÀÌ¸§	: program_exit()  
-	±â´É		: ÇÁ·Î±×·¥ Á¾·á (doTask Á¾·á)
-	Àü´Ş ÀÎÀÚ	: ¾øÀ½
-	¹İÈ¯°ª	: ¾øÀ½
-	ÀÛ¼ºÀÚ	: ½ÅÁ¾È­
+	í•¨ìˆ˜ ì´ë¦„	: program_exit()
+	ê¸°ëŠ¥		: í”„ë¡œê·¸ë¨ ì¢…ë£Œ (doTask ì¢…ë£Œ)
+	ì „ë‹¬ ì¸ì	: ì—†ìŒ
+	ë°˜í™˜ê°’	: ì—†ìŒ
+	ì‘ì„±ì	: ì‹ ì¢…í™”
 */
-void program_exit()    
+void program_exit()
 {
-	// Ãâ·Â Çü½Ä
-	out_fp << "6.1. Á¾·á" << endl;
+	// ì¶œë ¥ í˜•ì‹
+	out_fp << "6.1. ì¢…ë£Œ" << endl;
 }
 
 
