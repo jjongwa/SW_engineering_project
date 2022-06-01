@@ -11235,6 +11235,16 @@
 							"name": "evaluationCollection",
 							"visibility": "private",
 							"type": "EvaluationCollection"
+						},
+						{
+							"_type": "UMLAttribute",
+							"_id": "AAAAAAGBHgotsJpHAAE=",
+							"_parent": {
+								"$ref": "AAAAAAGAyDX34qJ6ZYM="
+							},
+							"name": "averageEvaluation",
+							"visibility": "private",
+							"type": "Integer"
 						}
 					],
 					"operations": [
@@ -11267,15 +11277,6 @@
 							},
 							"name": "getAverageEvaluation",
 							"parameters": [
-								{
-									"_type": "UMLParameter",
-									"_id": "AAAAAAGBEJXrXNFnlVY=",
-									"_parent": {
-										"$ref": "AAAAAAGAyMGjaguyKhQ="
-									},
-									"name": "clothName",
-									"type": "String"
-								},
 								{
 									"_type": "UMLParameter",
 									"_id": "AAAAAAGBEJXrXdFoSUc=",
@@ -18726,13 +18727,30 @@
 											"height": 13,
 											"text": "-evaluationCollection: EvaluationCollection",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLAttributeView",
+											"_id": "AAAAAAGBHgotxJpKbF8=",
+											"_parent": {
+												"$ref": "AAAAAAGAyLjNrAr2dtM="
+											},
+											"model": {
+												"$ref": "AAAAAAGBHgotsJpHAAE="
+											},
+											"font": "Arial;13;0",
+											"left": 589,
+											"top": 198,
+											"width": 298.9619140625,
+											"height": 13,
+											"text": "-averageEvaluation: Integer",
+											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 584,
 									"top": 118,
 									"width": 308.9619140625,
-									"height": 83
+									"height": 98
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -18755,7 +18773,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 589,
-											"top": 206,
+											"top": 221,
 											"width": 298.9619140625,
 											"height": 13,
 											"text": "+getCloth(): Cloth",
@@ -18772,10 +18790,10 @@
 											},
 											"font": "Arial;13;0",
 											"left": 589,
-											"top": 221,
+											"top": 236,
 											"width": 298.9619140625,
 											"height": 13,
-											"text": "+getAverageEvaluation(clothName: String): Integer",
+											"text": "+getAverageEvaluation(): Integer",
 											"horizontalAlignment": 0
 										},
 										{
@@ -18799,7 +18817,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 584,
-									"top": 201,
+									"top": 216,
 									"width": 308.9619140625,
 									"height": 38
 								},
@@ -20377,6 +20395,7 @@
 											"model": {
 												"$ref": "AAAAAAGBEL+gAkZXnos="
 											},
+											"visible": false,
 											"font": "Arial;13;0",
 											"left": 13,
 											"top": 162,
@@ -20390,7 +20409,7 @@
 									"left": 8,
 									"top": 142,
 									"width": 246.513671875,
-									"height": 38
+									"height": 23
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -20413,7 +20432,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 13,
-											"top": 185,
+											"top": 170,
 											"width": 236.513671875,
 											"height": 13,
 											"text": "+createSellCloth()",
@@ -20430,7 +20449,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 13,
-											"top": 200,
+											"top": 185,
 											"width": 236.513671875,
 											"height": 13,
 											"text": "+getSellClothlist(): Cloth[*]",
@@ -20445,9 +20464,10 @@
 											"model": {
 												"$ref": "AAAAAAGAy5UfrQsTm1E="
 											},
+											"visible": false,
 											"font": "Arial;13;0",
 											"left": 13,
-											"top": 215,
+											"top": 200,
 											"width": 236.513671875,
 											"height": 13,
 											"text": "+getSoldoutClothlist(): Cloth[*]",
@@ -20456,9 +20476,9 @@
 									],
 									"font": "Arial;13;0",
 									"left": 8,
-									"top": 180,
+									"top": 165,
 									"width": 246.513671875,
-									"height": 53
+									"height": 38
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -21181,6 +21201,7 @@
 											"model": {
 												"$ref": "AAAAAAGBEMHTqFRWKJ0="
 											},
+											"visible": false,
 											"font": "Arial;13;0",
 											"left": 637,
 											"top": 413,
@@ -21212,7 +21233,7 @@
 									"left": 632,
 									"top": 393,
 									"width": 179.1015625,
-									"height": 38
+									"height": 23
 								},
 								{
 									"_type": "UMLOperationCompartmentView",
@@ -21235,7 +21256,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 637,
-											"top": 436,
+											"top": 421,
 											"width": 169.1015625,
 											"height": 13,
 											"text": "+findFirst()",
@@ -21252,7 +21273,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 637,
-											"top": 451,
+											"top": 436,
 											"width": 169.1015625,
 											"height": 13,
 											"text": "+getNext()",
@@ -21269,7 +21290,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 637,
-											"top": 466,
+											"top": 451,
 											"width": 169.1015625,
 											"height": 13,
 											"text": "+addEvaluation()",
@@ -21286,7 +21307,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 637,
-											"top": 481,
+											"top": 466,
 											"width": 169.1015625,
 											"height": 13,
 											"text": "+findFirst()",
@@ -21303,7 +21324,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 637,
-											"top": 496,
+											"top": 481,
 											"width": 169.1015625,
 											"height": 13,
 											"text": "+getAverageEvaluation()",
@@ -21320,7 +21341,7 @@
 											},
 											"font": "Arial;13;0",
 											"left": 637,
-											"top": 511,
+											"top": 496,
 											"width": 169.1015625,
 											"height": 13,
 											"text": "-calculateAverage()",
@@ -21329,7 +21350,7 @@
 									],
 									"font": "Arial;13;0",
 									"left": 632,
-									"top": 431,
+									"top": 416,
 									"width": 179.1015625,
 									"height": 98
 								},

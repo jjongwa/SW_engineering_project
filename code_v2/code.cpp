@@ -199,10 +199,10 @@ class SignOut
 {
 	public: 
 		void deleteMember(Member user){
-			auto tmp_idx1 = find(Members.begin(), Members.end(), user.getID());
+		    vector<Member>::iterator tmp_idx1 = find(Members.begin(), Members.end(), user.getID());
 			Members.erase(tmp_idx1);
 
-			auto tmp_idx2 = find(Sellers.begin(), Sellers.end(), user.getID());
+			vector<Seller>::iterator tmp_idx2 = find(Sellers.begin(), Sellers.end(), user.getID());
 			Sellers.erase(tmp_idx2);
 			out_fp << "> " << user.getID() << endl;
 			
