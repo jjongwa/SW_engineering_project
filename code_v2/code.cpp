@@ -7,7 +7,7 @@
 
 using namespace std;
 
-// ìƒìˆ˜ ì„ ì–¸
+// »ó¼ö ¼±¾ğ
 #define MAX_STRING 32
 #define INPUT_FILE_NAME	"input.txt"
 #define OUTPUT_FILE_NAME "output.txt"
@@ -18,11 +18,11 @@ ofstream out_fp (OUTPUT_FILE_NAME);
 
 
 
-// Class ì„ ì–¸
+// Class ¼±¾ğ
 
 /*
-	í´ë˜ìŠ¤ ì´ë¦„ : Cloth
-	ì˜ë¯¸	  : ì˜· ì •ë³´ë¥¼ ë‹´ê³  ìˆë‹¤ 
+	Å¬·¡½º ÀÌ¸§ : Cloth
+	ÀÇ¹Ì	  : ¿Ê Á¤º¸¸¦ ´ã°í ÀÖ´Ù 
 */
 class Cloth 
 {
@@ -56,17 +56,17 @@ class Cloth
 		int getAverageEvaluation(){return averageEvaluation;};
 
 };
-vector <Cloth> Clothes;	// Clothë“¤ì˜ ì£¼ì†Œë¥¼ ëª¨ì•„ë‘ëŠ” ë°°ì—´
+vector <Cloth> Clothes;	// ClothµéÀÇ ÁÖ¼Ò¸¦ ¸ğ¾ÆµÎ´Â ¹è¿­
 
 
 /*
-	í´ë˜ìŠ¤ ì´ë¦„ : Member
-	ì˜ë¯¸	  : íšŒì› ì •ë³´ë¥¼ ë‹´ê³  ìˆë‹¤ 
+	Å¬·¡½º ÀÌ¸§ : Member
+	ÀÇ¹Ì	  : È¸¿ø Á¤º¸¸¦ ´ã°í ÀÖ´Ù 
 */
 class Member
 {		
 private:
-	string name, SSN, ID, password;	// ì´ë¦„, ì£¼ë¯¼ë²ˆí˜¸, ì•„ì´ë””, ë¹„ë°€ë²ˆí˜¸
+	string name, SSN, ID, password;	// ÀÌ¸§, ÁÖ¹Î¹øÈ£, ¾ÆÀÌµğ, ºñ¹Ğ¹øÈ£
 public:
 	Member(string input_name, string input_SSN, string input_ID, string input_password);
 	bool operator== (const string& s){
@@ -80,14 +80,14 @@ public:
 	string getSSN(){return SSN;}
 	string getID() const {return ID;} 
 	string getPassword(){return password;}  
-	bool is_available;	// ì´ ê³„ì •ì´ ì‚¬ìš©ê°€ëŠ¥í•œì§€ (íƒˆí‡´í•˜ì§€ ì•Šì•˜ëŠ”ì§€);
+	bool is_available;	// ÀÌ °èÁ¤ÀÌ »ç¿ë°¡´ÉÇÑÁö (Å»ÅğÇÏÁö ¾Ê¾Ò´ÂÁö);
 };
-vector <Member> Members;	// Memberë“¤ì˜ ì£¼ì†Œë¥¼ ëª¨ì•„ë‘ëŠ” ë°°ì—´
-Member* loginUser; //ë¡œê·¸ì¸í•œ ì‚¬ìš©ì
+vector <Member> Members;	// MemberµéÀÇ ÁÖ¼Ò¸¦ ¸ğ¾ÆµÎ´Â ¹è¿­
+Member* loginUser; //·Î±×ÀÎÇÑ »ç¿ëÀÚ
 
 /*
-	í´ë˜ìŠ¤ì´ë¦„ : Seller
-	ì˜ë¯¸	: íŒë§¤ì ì •ë³´ë¥¼ ë‹´ê³  ìˆë‹¤. 
+	Å¬·¡½ºÀÌ¸§ : Seller
+	ÀÇ¹Ì	: ÆÇ¸ÅÀÚ Á¤º¸¸¦ ´ã°í ÀÖ´Ù. 
 */
 class Seller : public Member
 {
@@ -109,12 +109,12 @@ class Seller : public Member
 		vector<Cloth> getSellClothlist(){return sellClothCollection; };
 		vector<Cloth> getSoldoutClothlist(){return soldoutClothCollection; };
 };
-vector <Seller> Sellers;	//Sellerë“¤ì˜ ì£¼ì†Œë¥¼ ëª¨ì•„ë‘ëŠ” ë°°ì—´
+vector <Seller> Sellers;	//SellerµéÀÇ ÁÖ¼Ò¸¦ ¸ğ¾ÆµÎ´Â ¹è¿­
 
 /*
-	í´ë˜ìŠ¤ ì´ë¦„ 	: SignUp
-	ê¸°ëŠ¥	  		: íšŒì› ê°€ì… control class
-	ì‘ì„±ì		: ì‹ ì¢…í™”
+	Å¬·¡½º ÀÌ¸§ 	: SignUp
+	±â´É	  		: È¸¿ø °¡ÀÔ control class
+	ÀÛ¼ºÀÚ		: ½ÅÁ¾È­
 */
 class SignUp
 {
@@ -124,9 +124,9 @@ public:
 
 
 /*
-	í´ë˜ìŠ¤ ì´ë¦„	: SignUpUI
-	ê¸°ëŠ¥  		: íšŒì› ê°€ì… boundary class
-	ì‘ì„±ì		: ì‹ ì¢…í™”
+	Å¬·¡½º ÀÌ¸§	: SignUpUI
+	±â´É  		: È¸¿ø °¡ÀÔ boundary class
+	ÀÛ¼ºÀÚ		: ½ÅÁ¾È­
 */
 class SignUpUI
 {
@@ -135,8 +135,8 @@ public:
 };
 
 /*
-	í´ë˜ìŠ¤ ì´ë¦„ : AddSellCloth
-	ì˜ë¯¸	  : íŒë§¤ì˜ë¥˜ ë“±ë¡ control class
+	Å¬·¡½º ÀÌ¸§ : AddSellCloth
+	ÀÇ¹Ì	  : ÆÇ¸ÅÀÇ·ù µî·Ï control class
 */
 class AddSellCloth
 {
@@ -145,8 +145,8 @@ class AddSellCloth
 };
 
 /*
-	í´ë˜ìŠ¤ ì´ë¦„ : AddSellClothUI
-	ì˜ë¯¸	  : íŒë§¤ì˜ë¥˜ ë“±ë¡ boundary class
+	Å¬·¡½º ÀÌ¸§ : AddSellClothUI
+	ÀÇ¹Ì	  : ÆÇ¸ÅÀÇ·ù µî·Ï boundary class
 */
 class AddSellClothUI
 {
@@ -160,8 +160,8 @@ class AddSellClothUI
 };
 
 /*
-	í´ë˜ìŠ¤ ì´ë¦„ : SignOut
-	ì˜ë¯¸	  : íšŒì›íƒˆí‡´ control class
+	Å¬·¡½º ÀÌ¸§ : SignOut
+	ÀÇ¹Ì	  : È¸¿øÅ»Åğ control class
 */
 class SignOut
 {
@@ -179,19 +179,19 @@ class SignOut
 };
 
 /*
-	í´ë˜ìŠ¤ ì´ë¦„ : SignOUtUI
-	ì˜ë¯¸	  :  íšŒì›íƒˆí‡´ boundary class
+	Å¬·¡½º ÀÌ¸§ : SignOUtUI
+	ÀÇ¹Ì	  :  È¸¿øÅ»Åğ boundary class
 */
 class SignOutUI
 {
 	public:
-		void startInterface(){out_fp << "1.2. íšŒì›íƒˆí‡´" << endl;};
+		void startInterface(){out_fp << "1.2. È¸¿øÅ»Åğ" << endl;};
 
 };
 
 /*
-	í´ë˜ìŠ¤ ì´ë¦„ : LogIn
-	ì˜ë¯¸	  : ë¡œê·¸ì¸ control class
+	Å¬·¡½º ÀÌ¸§ : LogIn
+	ÀÇ¹Ì	  : ·Î±×ÀÎ control class
 */
 class LogIn
 {
@@ -200,19 +200,19 @@ class LogIn
 };
 
 /*
-	í´ë˜ìŠ¤ ì´ë¦„ : LogInUI
-	ì˜ë¯¸	  :  ë¡œê·¸ì¸ boundary class
+	Å¬·¡½º ÀÌ¸§ : LogInUI
+	ÀÇ¹Ì	  :  ·Î±×ÀÎ boundary class
 */
 class LogInUI
 {
 	public:
-		void startInterface(){out_fp << "2.1. ë¡œê·¸ì¸" << endl;};
+		void startInterface(){out_fp << "2.1. ·Î±×ÀÎ" << endl;};
 
 };
 
 /*
-	í´ë˜ìŠ¤ ì´ë¦„ : LogOut
-	ì˜ë¯¸	  : ë¡œê·¸ì•„ì›ƒ control class
+	Å¬·¡½º ÀÌ¸§ : LogOut
+	ÀÇ¹Ì	  : ·Î±×¾Æ¿ô control class
 */
 class LogOut
 {
@@ -225,19 +225,19 @@ class LogOut
 };
 
 /*
-	í´ë˜ìŠ¤ ì´ë¦„ : LogOutUI
-	ì˜ë¯¸	  :  ë¡œê·¸ì•„ì›ƒ boundary class
+	Å¬·¡½º ÀÌ¸§ : LogOutUI
+	ÀÇ¹Ì	  :  ·Î±×¾Æ¿ô boundary class
 */
 class LogOutUI
 {
 	public:
-		void startInterface(){out_fp << "2.2. ë¡œê·¸ì•„ì›ƒ" << endl;};
+		void startInterface(){out_fp << "2.2. ·Î±×¾Æ¿ô" << endl;};
 
 };
 
 /*
-	í´ë˜ìŠ¤ ì´ë¦„ : SearchCloth
-	ì˜ë¯¸	  : ìƒí’ˆê²€ìƒ‰ control class
+	Å¬·¡½º ÀÌ¸§ : SearchCloth
+	ÀÇ¹Ì	  : »óÇ°°Ë»ö control class
 */
 class SearchCloth
 {
@@ -246,13 +246,13 @@ class SearchCloth
 };
 
 /*
-	í´ë˜ìŠ¤ ì´ë¦„ : SearchClothUI
-	ì˜ë¯¸	  :  ìƒí’ˆê²€ìƒ‰ boundary class
+	Å¬·¡½º ÀÌ¸§ : SearchClothUI
+	ÀÇ¹Ì	  :  »óÇ°°Ë»ö boundary class
 */
 class SearchClothUI
 {
 	public:
-		void startInterface(){out_fp << "4.1. ìƒí’ˆ ì •ë³´ ê²€ìƒ‰" << endl;};
+		void startInterface(){out_fp << "4.1. »óÇ° Á¤º¸ °Ë»ö" << endl;};
 
 };
 
@@ -275,41 +275,41 @@ int main()
 
 void doTask()
 {
-	//cout << "doTaskë“¤ì–´ì˜´"<< endl;
-	// ë©”ë‰´ íŒŒì‹±ì„ ìœ„í•œ level êµ¬ë¶„ì„ ìœ„í•œ ë³€ìˆ˜
+	//cout << "doTaskµé¾î¿È"<< endl;
+	// ¸Ş´º ÆÄ½ÌÀ» À§ÇÑ level ±¸ºĞÀ» À§ÇÑ º¯¼ö
 	Member m = Member("TMP_NAME", "000-0000","tmp_id","tmp_pw");
-	loginUser = &m;	//ë¡œê·¸ì¸í•œ íšŒì›ì—†ì–´ì„œ ì„ì‹œë¡œ ë§Œë“¬
+	loginUser = &m;	//·Î±×ÀÎÇÑ È¸¿ø¾ø¾î¼­ ÀÓ½Ã·Î ¸¸µë
 	// Members.push_back(m);
 
 	int is_program_exit = 0;
 	
 	while(!is_program_exit)
 	{	
-		string dummy;	// ë£¨í”„ ë°©ì§€ë¥¼ ìœ„í•œ ë³€ìˆ˜
+		string dummy;	// ·çÇÁ ¹æÁö¸¦ À§ÇÑ º¯¼ö
 		int menu_level_1 = 0, menu_level_2 = 0;
-		// ì…ë ¥íŒŒì¼ì—ì„œ ë©”ë‰´ ìˆ«ì 2ê°œë¥¼ ì½ê¸°
+		// ÀÔ·ÂÆÄÀÏ¿¡¼­ ¸Ş´º ¼ıÀÚ 2°³¸¦ ÀĞ±â
 		in_fp >> menu_level_1 >> menu_level_2;
-		cout << "í™•ì¸ìš©) í˜„ì¬ ë°›ì€ method ë²ˆí˜¸: "<< menu_level_1 << " " <<menu_level_2<< endl;
+		cout << "È®ÀÎ¿ë) ÇöÀç ¹ŞÀº method ¹øÈ£: "<< menu_level_1 << " " <<menu_level_2<< endl;
 		
 		
 		
-		// ë©”ë‰´ êµ¬ë¶„ ë° í•´ë‹¹ ì—°ì‚° ìˆ˜í–‰
+		// ¸Ş´º ±¸ºĞ ¹× ÇØ´ç ¿¬»ê ¼öÇà
 		switch(menu_level_1)
 		{
 			case 1:
 			{		
 				switch(menu_level_2)
 				{
-					case 1:	// "1.1. íšŒì›ê°€ì…â€œ ë©”ë‰´ ë¶€ë¶„
+					case 1:	// "1.1. È¸¿ø°¡ÀÔ¡° ¸Ş´º ºÎºĞ
 					{						
-						// join() í•¨ìˆ˜ì—ì„œ í•´ë‹¹ ê¸°ëŠ¥ ìˆ˜í–‰ 
+						// join() ÇÔ¼ö¿¡¼­ ÇØ´ç ±â´É ¼öÇà 
 						SignUpUI* startSignUpUI = new SignUpUI;
 						startSignUpUI->signUpRequest();
 						
 						//join();
 						break;
 					}
-					case 2:	// 1.2 íšŒì›íƒˆí‡´
+					case 2:	// 1.2 È¸¿øÅ»Åğ
 					{
 						SignOutUI signOutUI = SignOutUI();
 						SignOut signOut = SignOut();
@@ -326,7 +326,7 @@ void doTask()
 			{	
 				switch(menu_level_2)
 				{
-					case 1:	// 2.1 ë¡œê·¸ì¸
+					case 1:	// 2.1 ·Î±×ÀÎ
 					{		
 						string id, password;		
 						in_fp >> id;	
@@ -339,7 +339,7 @@ void doTask()
 						logIn.loginMember(id,password);
 						break;
 					}
-					case 2:	// 2.2 ë¡œê·¸ì•„ì›ƒ
+					case 2:	// 2.2 ·Î±×¾Æ¿ô
 					{
 						LogOutUI logOutUI = LogOutUI();
 						LogOut logout = LogOut();
@@ -355,7 +355,7 @@ void doTask()
 			{
 				switch(menu_level_2)
 				{
-					case 1:	// 3.1 íŒë§¤ ì˜ë¥˜ ë“±ë¡
+					case 1:	// 3.1 ÆÇ¸Å ÀÇ·ù µî·Ï
 					{				
 						string clothName, companyName;
 						int price, quantity;
@@ -372,12 +372,12 @@ void doTask()
 						addSellCloth.addSellCloth(cloth, *loginUser);
 						break;
 					}
-					case 2:	// 3.2 ë“±ë¡ ìƒí’ˆ ì¡°íšŒ
+					case 2:	// 3.2 µî·Ï »óÇ° Á¶È¸
 					{
 			   
 						break;
 					}
-					case 3:	// 3.3 íŒë§¤ ì™„ë£Œ ìƒí’ˆ ì¡°íšŒ
+					case 3:	// 3.3 ÆÇ¸Å ¿Ï·á »óÇ° Á¶È¸
 					{
 			   
 						break;
@@ -389,7 +389,7 @@ void doTask()
 			{
 				switch(menu_level_2)
 				{
-					case 1:	// 4.1 ìƒí’ˆ ì •ë³´ ê²€ìƒ‰
+					case 1:	// 4.1 »óÇ° Á¤º¸ °Ë»ö
 					{		
 						string clothName;		
 						in_fp >> clothName;	
@@ -401,19 +401,19 @@ void doTask()
 						searchCloth.searchClothByName(clothName);
 						break;
 					}
-					case 2:	// 4.2 ìƒí’ˆ êµ¬ë§¤
+					case 2:	// 4.2 »óÇ° ±¸¸Å
 					{
 			   
 						break;
 					}
-					case 3:	// 4.3 ìƒí’ˆ êµ¬ë§¤ ë‚´ì—­ ì¡°íšŒ
+					case 3:	// 4.3 »óÇ° ±¸¸Å ³»¿ª Á¶È¸
 					{
 			   
 						break;
 					}
-					case 4:	// 4.4 ìƒí’ˆ êµ¬ë§¤ë§Œì¡±ë„ í‰ê°€
+					case 4:	// 4.4 »óÇ° ±¸¸Å¸¸Á·µµ Æò°¡
 					{
-						in_fp >> menu_level_1;	// ë¬´í•œë£¨í”„ ë°©ì§€êµ¬ë¬¸, ì½”ë“œ ì™„ì„±í•˜ë©´ ì§€ì›Œì£¼ì„¸ìš”
+						in_fp >> menu_level_1;	// ¹«ÇÑ·çÇÁ ¹æÁö±¸¹®, ÄÚµå ¿Ï¼ºÇÏ¸é Áö¿öÁÖ¼¼¿ä
 						break;
 					}
 				}
@@ -423,7 +423,7 @@ void doTask()
 			{
 				switch(menu_level_2)
 				{
-					case 1:	// 5.1 íŒë§¤ ìƒí’ˆ í†µê³„
+					case 1:	// 5.1 ÆÇ¸Å »óÇ° Åë°è
 					{				
 		
 						break;
@@ -436,7 +436,7 @@ void doTask()
 			{
 				switch(menu_level_2)
 				{
-					case 1:	// 6.1 ì¢…ë£Œ
+					case 1:	// 6.1 Á¾·á
 					{	
 						is_program_exit = 1;							
 						program_exit();
@@ -461,14 +461,14 @@ void doTask()
 
 
 
-// í•¨ìˆ˜ ì„ ì–¸
+// ÇÔ¼ö ¼±¾ğ
 
 /*
-	í•¨ìˆ˜ ì´ë¦„	: Member:::Member()
-	ê¸°ëŠ¥		: ìƒˆë¡œìš´ íšŒì›ì„ ë§Œë“œëŠ” ìƒì„±ì
-	ì „ë‹¬ ì¸ì	: string input_name, string input_SSN, string input_ID, string input_password
-	ë°˜í™˜ê°’	: ì—†ìŒ
-	ì‘ì„±ì	: ì‹ ì¢…í™”
+	ÇÔ¼ö ÀÌ¸§	: Member:::Member()
+	±â´É		: »õ·Î¿î È¸¿øÀ» ¸¸µå´Â »ı¼ºÀÚ
+	Àü´Ş ÀÎÀÚ	: string input_name, string input_SSN, string input_ID, string input_password
+	¹İÈ¯°ª	: ¾øÀ½
+	ÀÛ¼ºÀÚ	: ½ÅÁ¾È­
 */
 Member::Member(string input_name, string input_SSN, string input_ID, string input_password)
 {
@@ -481,16 +481,16 @@ Member::Member(string input_name, string input_SSN, string input_ID, string inpu
 
 
 /*
-	í•¨ìˆ˜ ì´ë¦„	: SignUpUI::signUpRequest()
-	ê¸°ëŠ¥		: íšŒì›ê°€ì… ì§„í–‰ì„ ì‹œì‘í•˜ëŠ” í•¨ìˆ˜, íšŒì›ê°€ì…ì— í•„ìš”í•œ ì •ë³´ë¥¼ ì…ë ¥ë°›ìŒ
-	ì „ë‹¬ ì¸ì	: ì—†ìŒ
-	ë°˜í™˜ê°’	: ì—†ìŒ, SignUp->createMemRequest() í˜¸ì¶œ 
-	ì‘ì„±ì	: ì‹ ì¢…í™”
+	ÇÔ¼ö ÀÌ¸§	: SignUpUI::signUpRequest()
+	±â´É		: È¸¿ø°¡ÀÔ ÁøÇàÀ» ½ÃÀÛÇÏ´Â ÇÔ¼ö, È¸¿ø°¡ÀÔ¿¡ ÇÊ¿äÇÑ Á¤º¸¸¦ ÀÔ·Â¹ŞÀ½
+	Àü´Ş ÀÎÀÚ	: ¾øÀ½
+	¹İÈ¯°ª	: ¾øÀ½, SignUp->createMemRequest() È£Ãâ 
+	ÀÛ¼ºÀÚ	: ½ÅÁ¾È­
 */
 void SignUpUI::signUpRequest()
 {
-	// ì¶œë ¥ í˜•ì‹
-	out_fp << "1.1. íšŒì›ê°€ì…" << endl;
+	// Ãâ·Â Çü½Ä
+	out_fp << "1.1. È¸¿ø°¡ÀÔ" << endl;
 	
 	string name, SSN, ID, password;
 	in_fp >> name >> SSN >> ID >> password;
@@ -501,28 +501,28 @@ void SignUpUI::signUpRequest()
 }
 
 /*
-	í•¨ìˆ˜ ì´ë¦„	: SignUpUI::createMemRequest(string name, string SSN, string ID, string password)
-	ê¸°ëŠ¥		: íšŒì›ê°€ì… ì§„í–‰, ì…ë ¥ë°›ì€ ì •ë³´ë¡œ Member í´ë˜ìŠ¤ ë§Œë“¤ì–´ Members ë²¡í„°ì— ì €ì¥
-	ì „ë‹¬ ì¸ì	: string name, string SSN, string ID, string password
-	ë°˜í™˜ê°’	: ì—†ìŒ
-	ì‘ì„±ì	: ì‹ ì¢…í™”
+	ÇÔ¼ö ÀÌ¸§	: SignUpUI::createMemRequest(string name, string SSN, string ID, string password)
+	±â´É		: È¸¿ø°¡ÀÔ ÁøÇà, ÀÔ·Â¹ŞÀº Á¤º¸·Î Member Å¬·¡½º ¸¸µé¾î Members º¤ÅÍ¿¡ ÀúÀå
+	Àü´Ş ÀÎÀÚ	: string name, string SSN, string ID, string password
+	¹İÈ¯°ª	: ¾øÀ½
+	ÀÛ¼ºÀÚ	: ½ÅÁ¾È­
 */
 void SignUp::createMemRequest(string name, string SSN, string ID, string password)
 {
 	Member newMem = Member(name, SSN, ID, password);
 	Members.push_back(newMem);
 	
-	cout << "í™•ì¸ìš©(ë©¤ë²„ ì €ì¥ëëŠ”ì§€) ë°©ê¸ˆ ì €ì¥ëœ ê³„ì •ì˜ ì‚¬ëŒ ì´ë¦„  "<<Members.back().getName() << endl;
-	// ì¶œë ¥ í˜•ì‹
+	cout << "È®ÀÎ¿ë(¸â¹ö ÀúÀåµÆ´ÂÁö) ¹æ±İ ÀúÀåµÈ °èÁ¤ÀÇ »ç¶÷ ÀÌ¸§  "<<Members.back().getName() << endl;
+	// Ãâ·Â Çü½Ä
 	out_fp << "> " << name << " " << SSN << " " << ID << " " << password <<endl;
 }
 
 /*
-	í•¨ìˆ˜ ì´ë¦„	: AddSellCloth::addSellCloth(Cloth cloth, Member user)
-	ê¸°ëŠ¥		: íŒë§¤ì ìƒì„± ë° ì´ë¯¸ ì¡´ì¬ì‹œ íŒë§¤ì˜ë¥˜ ëª©ë¡ì— Cloth ì¶”ê°€ 
-	ì „ë‹¬ ì¸ì	: Cloth cloth, Member user
-	ë°˜í™˜ê°’	: ì—†ìŒ
-	ì‘ì„±ì	: í•˜ì±„í˜•
+	ÇÔ¼ö ÀÌ¸§	: AddSellCloth::addSellCloth(Cloth cloth, Member user)
+	±â´É		: ÆÇ¸ÅÀÚ »ı¼º ¹× ÀÌ¹Ì Á¸Àç½Ã ÆÇ¸ÅÀÇ·ù ¸ñ·Ï¿¡ Cloth Ãß°¡ 
+	Àü´Ş ÀÎÀÚ	: Cloth cloth, Member user
+	¹İÈ¯°ª	: ¾øÀ½
+	ÀÛ¼ºÀÚ	: ÇÏÃ¤Çü
 */
 void AddSellCloth::addSellCloth(Cloth cloth, Member user)
 {
@@ -544,23 +544,23 @@ void AddSellCloth::addSellCloth(Cloth cloth, Member user)
 };
 
 /*
-	í•¨ìˆ˜ ì´ë¦„	: AddSellClothUI::startInterface()
-	ê¸°ëŠ¥		: íŒë§¤ì˜ë¥˜ ì¶”ê°€ UIìƒì„±
-	ì „ë‹¬ ì¸ì	: ì—†ìŒ
-	ë°˜í™˜ê°’	: ì—†ìŒ
-	ì‘ì„±ì	: í•˜ì±„í˜•
+	ÇÔ¼ö ÀÌ¸§	: AddSellClothUI::startInterface()
+	±â´É		: ÆÇ¸ÅÀÇ·ù Ãß°¡ UI»ı¼º
+	Àü´Ş ÀÎÀÚ	: ¾øÀ½
+	¹İÈ¯°ª	: ¾øÀ½
+	ÀÛ¼ºÀÚ	: ÇÏÃ¤Çü
 */
 void AddSellClothUI::startInterface()
 {
-			out_fp << "3.1. íŒë§¤ ì˜ë¥˜ ë“±ë¡" << endl;
+			out_fp << "3.1. ÆÇ¸Å ÀÇ·ù µî·Ï" << endl;
 }
 
 /*
-	í•¨ìˆ˜ ì´ë¦„	: LogIn::loginMember(string id, string password)
-	ê¸°ëŠ¥		: ë¡œê·¸ì¸
-	ì „ë‹¬ ì¸ì	: string id, string password
-	ë°˜í™˜ê°’	: ì—†ìŒ
-	ì‘ì„±ì	: í•˜ì±„í˜•
+	ÇÔ¼ö ÀÌ¸§	: LogIn::loginMember(string id, string password)
+	±â´É		: ·Î±×ÀÎ
+	Àü´Ş ÀÎÀÚ	: string id, string password
+	¹İÈ¯°ª	: ¾øÀ½
+	ÀÛ¼ºÀÚ	: ÇÏÃ¤Çü
 */
 void LogIn::loginMember(string id, string password){
 			int tmp_idx1 = find(Members.begin(), Members.end(), id)-Members.begin();
@@ -569,18 +569,18 @@ void LogIn::loginMember(string id, string password){
 			if(tmp.getPassword().compare(password)==0){
 				out_fp << "> " << tmp.getID() <<" "<<tmp.getPassword()<< endl;
 			}else{
-				out_fp << "> ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë¦½ë‹ˆë‹¤." << endl;
+				out_fp << "> ºñ¹Ğ¹øÈ£°¡ Æ²¸³´Ï´Ù." << endl;
 			}
 			
 			loginUser = &Members[tmp_idx1];
 		};
 
 /*
-	í•¨ìˆ˜ ì´ë¦„	: SearchCloth::searchClothByName(string clothName)
-	ê¸°ëŠ¥		: ìƒí’ˆê²€ìƒ‰
-	ì „ë‹¬ ì¸ì	: string clothName
-	ë°˜í™˜ê°’	: ì—†ìŒ
-	ì‘ì„±ì	: í•˜ì±„í˜•
+	ÇÔ¼ö ÀÌ¸§	: SearchCloth::searchClothByName(string clothName)
+	±â´É		: »óÇ°°Ë»ö
+	Àü´Ş ÀÎÀÚ	: string clothName
+	¹İÈ¯°ª	: ¾øÀ½
+	ÀÛ¼ºÀÚ	: ÇÏÃ¤Çü
 */
 void SearchCloth::searchClothByName(string clothName)
 {
@@ -610,16 +610,16 @@ void SearchCloth::searchClothByName(string clothName)
 
 
 /*
-	í•¨ìˆ˜ ì´ë¦„	: program_exit()  
-	ê¸°ëŠ¥		: í”„ë¡œê·¸ë¨ ì¢…ë£Œ (doTask ì¢…ë£Œ)
-	ì „ë‹¬ ì¸ì	: ì—†ìŒ
-	ë°˜í™˜ê°’	: ì—†ìŒ
-	ì‘ì„±ì	: ì‹ ì¢…í™”
+	ÇÔ¼ö ÀÌ¸§	: program_exit()  
+	±â´É		: ÇÁ·Î±×·¥ Á¾·á (doTask Á¾·á)
+	Àü´Ş ÀÎÀÚ	: ¾øÀ½
+	¹İÈ¯°ª	: ¾øÀ½
+	ÀÛ¼ºÀÚ	: ½ÅÁ¾È­
 */
 void program_exit()    
 {
-	// ì¶œë ¥ í˜•ì‹
-	out_fp << "6.1. ì¢…ë£Œ" << endl;
+	// Ãâ·Â Çü½Ä
+	out_fp << "6.1. Á¾·á" << endl;
 }
 
 
